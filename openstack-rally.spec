@@ -70,10 +70,10 @@ rm -rf {test-,}requirements.txt
 mkdir -p %{buildroot}/%{_sysconfdir}/bash_completion.d
 mv %{buildroot}/usr/etc/bash_completion.d/rally.bash_completion %{buildroot}/%{_sysconfdir}/bash_completion.d
 
-chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/engines/devstack/install.sh
-chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/engines/lxc/start.sh
-chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/serverprovider/providers/lxc/lxc-install.sh
-chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/serverprovider/providers/lxc/configure_container.sh
+chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/devstack/install.sh
+chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/lxc/start.sh
+chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc/lxc-install.sh
+chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc/configure_container.sh
 
 %post
 # Configure Rally
