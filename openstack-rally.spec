@@ -13,7 +13,6 @@ BuildRequires:    python2-devel
 BuildRequires:    python-jsonschema
 BuildRequires:    python-pbr
 
-Requires:         bash-completion
 Requires:         python-babel
 Requires:         python-boto
 Requires:         python-decorator
@@ -25,12 +24,13 @@ Requires:         python-netaddr
 Requires:         python-oslo-config >= 1.11.0
 Requires:         python-oslo-db >= 1.7.0
 Requires:         python-oslo-i18n >= 1.5.0
+Requires:         python-oslo-log >= 1.8.0
 Requires:         python-oslo-serialization >= 1.4.0
 Requires:         python-oslo-utils >= 1.4.0
 Requires:         python-paramiko
 Requires:         python-pecan
 Requires:         python-prettytable
-Requires:         pyyaml
+Requires:         PyYAML
 Requires:         python-psycopg2
 Requires:         python-designateclient
 Requires:         python-glanceclient
@@ -67,6 +67,8 @@ rm -rf {test-,}requirements.txt
 
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
+mkdir -p %{buildroot}/%{_sysconfdir}/bash_completion.d
+mv %{buildroot}/usr/etc/bash_completion.d/rally.bash_completion %{buildroot}/%{_sysconfdir}/bash_completion.d
 
 chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/engines/devstack/install.sh
 chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/engines/lxc/start.sh
@@ -90,7 +92,7 @@ chmod -R go+w ${RALLY_DATABASE_DIR}
 
 %{_bindir}/%{project}
 %{_bindir}/%{project}-manage
-%{_prefix}%{_sysconfdir}/bash_completion.d/rally.bash_completion
+%{_sysconfdir}/bash_completion.d/rally.bash_completion
 
 %changelog
 * Fri Sep 11 2015 Steve Linabery <slinaber@redhat.com> - 0.0.4-1
