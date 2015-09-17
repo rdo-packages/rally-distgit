@@ -1,14 +1,17 @@
 %global project rally
+
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+
 Name:             openstack-%{project}
-Version:          0.0.4
-Release:          1%{?dist}
+Version:          XXX
+Release:          XXX
 Summary:          Benchmarking tool for OpenStack
 
 License:          ASL 2.0
 URL:              http://wiki.openstack.org/wiki/Rally
-Source0:          https://pypi.python.org/packages/source/r/rally/%{project}-%{version}.tar.gz
+Source0:          http://tarballs.openstack.org/rally/rally-master.tar.gz
 
-BuildArch:        noarch 
+BuildArch:        noarch
 BuildRequires:    python2-devel
 BuildRequires:    python-jsonschema
 BuildRequires:    python-pbr
@@ -95,8 +98,3 @@ chmod -R go+w ${RALLY_DATABASE_DIR}
 %{_sysconfdir}/bash_completion.d/rally.bash_completion
 
 %changelog
-* Fri Sep 11 2015 Steve Linabery <slinaber@redhat.com> - 0.0.4-1
-- rebase to 0.0.4 release
-
-* Wed May 13 2015 Victoria Martinez de la Cruz <vkmc@fedorapeople.org> - 0.0.1-1
-- Initial package.
