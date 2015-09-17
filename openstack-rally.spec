@@ -56,7 +56,7 @@ Rally is a benchmarking tool capable of performing specific,
 complex and reproducible test cases on real deployment scenarios.
 
 %prep
-%setup -q -n %{project}-%{version}
+%setup -q -n %{project}-%{upstream_version}
 
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
