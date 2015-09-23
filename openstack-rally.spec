@@ -1,15 +1,12 @@
 %global project rally
-
-%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
-
 Name:             openstack-%{project}
-Version:          XXX
-Release:          XXX
+Version:          0.0.4
+Release:          1%{?dist}
 Summary:          Benchmarking tool for OpenStack
 
 License:          ASL 2.0
 URL:              http://wiki.openstack.org/wiki/Rally
-Source0:          http://tarballs.openstack.org/rally/rally-master.tar.gz
+Source0:          https://pypi.python.org/packages/source/r/rally/%{project}-%{version}.tar.gz
 
 BuildArch:        noarch
 BuildRequires:    python2-devel
@@ -59,7 +56,7 @@ Rally is a benchmarking tool capable of performing specific,
 complex and reproducible test cases on real deployment scenarios.
 
 %prep
-%setup -q -n %{project}-%{upstream_version}
+%setup -q -n %{project}-%{version}
 
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
@@ -73,10 +70,10 @@ rm -rf {test-,}requirements.txt
 mkdir -p %{buildroot}/%{_sysconfdir}/bash_completion.d
 mv %{buildroot}/usr/etc/bash_completion.d/rally.bash_completion %{buildroot}/%{_sysconfdir}/bash_completion.d
 
-chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/devstack/install.sh
-chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/lxc/start.sh
-chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc/lxc-install.sh
-chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc/configure_container.sh
+chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/engines/devstack/install.sh
+chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/engines/lxc/start.sh
+chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/serverprovider/providers/lxc/lxc-install.sh
+chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/serverprovider/providers/lxc/configure_container.sh
 
 %post
 # Configure Rally
@@ -98,3 +95,8 @@ chmod -R go+w ${RALLY_DATABASE_DIR}
 %{_sysconfdir}/bash_completion.d/rally.bash_completion
 
 %changelog
+* Fri Sep 11 2015 Steve Linabery <slinaber@redhat.com> - 0.0.4-1
+- rebase to 0.0.4 release
+
+* Wed May 13 2015 Victoria Martinez de la Cruz <vkmc@fedorapeople.org> - 0.0.1-1
+- Initial package.
