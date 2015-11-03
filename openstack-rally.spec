@@ -15,6 +15,7 @@ BuildArch:        noarch
 BuildRequires:    python2-devel
 BuildRequires:    python-jsonschema
 BuildRequires:    python-pbr
+BuildRequires:    python-setuptools
 
 Requires:         python-babel
 Requires:         python-boto
