@@ -1,6 +1,6 @@
 %global project rally
 Name:             openstack-%{project}
-Version:          0.0.4
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Benchmarking tool for OpenStack
 
@@ -12,6 +12,7 @@ BuildArch:        noarch
 BuildRequires:    python2-devel
 BuildRequires:    python-jsonschema
 BuildRequires:    python-pbr
+BuildRequires:    python-setuptools
 
 Requires:         python-babel
 Requires:         python-boto
@@ -70,10 +71,10 @@ rm -rf {test-,}requirements.txt
 mkdir -p %{buildroot}/%{_sysconfdir}/bash_completion.d
 mv %{buildroot}/usr/etc/bash_completion.d/rally.bash_completion %{buildroot}/%{_sysconfdir}/bash_completion.d
 
-chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/engines/devstack/install.sh
-chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/engines/lxc/start.sh
-chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/serverprovider/providers/lxc/lxc-install.sh
-chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deploy/serverprovider/providers/lxc/configure_container.sh
+chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/devstack/install.sh
+chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/lxc/start.sh
+chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc/lxc-install.sh
+chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc/configure_container.sh
 
 %post
 # Configure Rally
@@ -95,6 +96,10 @@ chmod -R go+w ${RALLY_DATABASE_DIR}
 %{_sysconfdir}/bash_completion.d/rally.bash_completion
 
 %changelog
+* Wed Nov 04 2015 Steve Linabery <slinaber@redhat.com> - 0.1.1-1
+- rebase to 0.1.1 release
+- Add BuildRequires python-setuptools
+
 * Fri Sep 11 2015 Steve Linabery <slinaber@redhat.com> - 0.0.4-1
 - rebase to 0.0.4 release
 
