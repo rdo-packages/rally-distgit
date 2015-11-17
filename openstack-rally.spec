@@ -96,8 +96,8 @@ chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/pr
 
 %post
 # Configure Rally
-RALLY_DB_DIR=%{_sharedstatedir}/{%project}/database
-RALLY_CONF_DIR=%{_sysconfdir}/{%project}
+RALLY_DATABASE_DIR=%{_sharedstatedir}/{%project}/database
+RALLY_CONFIGURATION_DIR=%{_sysconfdir}/{%project}
 mkdir -p ${RALLY_DATABASE_DIR} ${RALLY_CONFIGURATION_DIR}
 sed 's|#connection=<None>|connection=sqlite:///'${RALLY_DATABASE_DIR}'/rally.sqlite|' \
 ${TMP}/etc/rally/rally.conf.sample > ${RALLY_CONFIGURATION_DIR}/rally.conf
