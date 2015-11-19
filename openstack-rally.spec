@@ -95,16 +95,6 @@ chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/lxc/start
 chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc/lxc-install.sh
 chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc/configure_container.sh
 
-%post
-# Configure Rally
-RALLY_DATABASE_DIR=%{_sharedstatedir}/{%project}/database
-RALLY_CONFIGURATION_DIR=%{_sysconfdir}/{%project}
-mkdir -p ${RALLY_DATABASE_DIR} ${RALLY_CONFIGURATION_DIR}
-sed 's|#connection=<None>|connection=sqlite:///'${RALLY_DATABASE_DIR}'/rally.sqlite|' \
-${TMP}/etc/rally/rally.conf.sample > ${RALLY_CONFIGURATION_DIR}/rally.conf
-rally-manage db recreate
-chmod -R go+w ${RALLY_DATABASE_DIR}
-
 %files
 %license LICENSE
 %{python2_sitelib}/%{project}
