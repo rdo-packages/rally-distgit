@@ -16,8 +16,8 @@ BuildRequires:    python2-devel
 BuildRequires:    python-jsonschema
 BuildRequires:    python-pbr
 BuildRequires:    python-setuptools
-BuildRequires:    python-oslo-config >= 2.6.0
-BuildRequires:    python-oslo-db >= 3.0.0
+BuildRequires:    python-oslo-config >= 2.4.0
+BuildRequires:    python-oslo-db >= 2.6.0
 BuildRequires:    python-oslo-log >= 1.8.0
 BuildRequires:    python-paramiko
 BuildRequires:    python-glanceclient >= 1.8.0
@@ -35,8 +35,8 @@ Requires:         python-iso8601
 Requires:         python-jinja2
 Requires:         python-jsonschema
 Requires:         python-netaddr
-Requires:         python-oslo-config >= 2.6.0
-Requires:         python-oslo-db >= 3.0.0
+Requires:         python-oslo-config >= 2.4.0
+Requires:         python-oslo-db >= 2.6.0
 Requires:         python-oslo-i18n >= 1.5.0
 Requires:         python-oslo-log >= 1.8.0
 Requires:         python-oslo-serialization >= 1.4.0
