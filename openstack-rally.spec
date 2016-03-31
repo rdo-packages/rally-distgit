@@ -3,13 +3,13 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             openstack-%{project}
-Version:          XXX
-Release:          XXX
+Version:          0.3.3
+Release:          1%{?dist}
 Summary:          Benchmarking tool for OpenStack
 
 License:          ASL 2.0
 URL:              http://wiki.openstack.org/wiki/Rally
-Source0:          http://tarballs.openstack.org/rally/rally-master.tar.gz
+Source0:          http://tarballs.openstack.org/rally/rally-%{version}%{?milestone}.tar.gz
 
 BuildArch:        noarch
 BuildRequires:    python2-devel
@@ -105,3 +105,5 @@ chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/pr
 %{_sysconfdir}/bash_completion.d/rally.bash_completion
 
 %changelog
+* Thu Mar 31 2016 RDO <rdo-list@redhat.com> 0.3.3-1
+- RC1 Rebuild for Mitaka RC1 0.3.3
