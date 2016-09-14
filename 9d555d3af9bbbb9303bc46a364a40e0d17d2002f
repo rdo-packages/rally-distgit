@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "facab960_c26cb739",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2016-09-14T08:57:01Z",
+      "side": 1,
+      "message": "Please use %license for LICENSE file",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 6
+      },
+      "revId": "9d555d3af9bbbb9303bc46a364a40e0d17d2002f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
