@@ -9,7 +9,7 @@ Summary:          Benchmarking tool for OpenStack
 
 License:          ASL 2.0
 URL:              http://wiki.openstack.org/wiki/Rally
-Source0:          http://tarballs.openstack.org/rally/rally-master.tar.gz
+Source0:          https://tarballs.openstack.org/rally/rally-master.tar.gz
 
 BuildArch:        noarch
 BuildRequires:    python2-devel
