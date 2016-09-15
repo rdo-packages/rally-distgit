@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "facab960_50c5ce59",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 127
+      },
+      "writtenOn": "2016-09-15T19:37:37Z",
+      "side": 1,
+      "message": "If not required for runtime can we please drop the Requires python-babel?",
+      "parentUuid": "facab960_70d3b238",
+      "revId": "3f848457a760d6a982043ed18013d01e40c87cce",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "facab960_50eeaeed",
         "filename": "openstack-rally.spec",
         "patchSetId": 2
@@ -30,6 +48,29 @@
       "writtenOn": "2016-09-15T19:22:09Z",
       "side": 1,
       "message": "Dependencies missing: python-monascaclient, python-watcherclient,",
+      "revId": "3f848457a760d6a982043ed18013d01e40c87cce",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "facab960_b0ab7a88",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 127
+      },
+      "writtenOn": "2016-09-15T19:37:37Z",
+      "side": 1,
+      "message": "shouldn\u0027t we be doing documentation build during the %build section not the install section?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 6
+      },
       "revId": "3f848457a760d6a982043ed18013d01e40c87cce",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
