@@ -3,8 +3,8 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             openstack-%{project}
-Version:          XXX
-Release:          XXX
+Version:          0.6.0
+Release:          1%{?dist}
 Summary:          Benchmarking tool for OpenStack
 
 License:          ASL 2.0
@@ -112,3 +112,6 @@ chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/pr
 %{_sysconfdir}/bash_completion.d/rally.bash_completion
 
 %changelog
+* Fri Sep 16 2016 Haikel Guemar <hguemar@fedoraproject.org> 0.6.0-1
+- Update to 0.6.0
+
