@@ -112,3 +112,4 @@ chmod a+x %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/pr
 %{_sysconfdir}/bash_completion.d/rally.bash_completion
 
 %changelog
+# REMOVEME: error caused by commit 
