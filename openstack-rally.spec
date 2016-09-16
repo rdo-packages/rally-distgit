@@ -16,17 +16,18 @@ BuildRequires:    python2-devel
 BuildRequires:    python-jsonschema
 BuildRequires:    python-pbr
 BuildRequires:    python-setuptools
-BuildRequires:    python-oslo-config >= 2.4.0
-BuildRequires:    python-oslo-db >= 2.6.0
-BuildRequires:    python-oslo-log >= 1.8.0
+BuildRequires:    python-oslo-config >= 2:3.14.0
+BuildRequires:    python-oslo-db >= 4.10.0
+BuildRequires:    python-oslo-log >= 1.14.0
 BuildRequires:    python-paramiko
-BuildRequires:    python-glanceclient >= 1.8.0
-BuildRequires:    python-neutronclient >= 2.6.0
+BuildRequires:    python-glanceclient >= 2.3.0
+BuildRequires:    python-neutronclient >= 5.1.0
 BuildRequires:    python-novaclient >= 2.29.0
-BuildRequires:    python-saharaclient >= 0.10.0
+BuildRequires:    python-saharaclient >= 0.18.0
 BuildRequires:    python-subunit
 BuildRequires:    python-sphinx
 
+Requires:         python-alembic >= 0.8.4
 Requires:         python-babel
 Requires:         python-boto
 Requires:         python-decorator
@@ -35,11 +36,11 @@ Requires:         python-iso8601
 Requires:         python-jinja2
 Requires:         python-jsonschema
 Requires:         python-netaddr
-Requires:         python-oslo-config >= 2.4.0
-Requires:         python-oslo-db >= 2.6.0
-Requires:         python-oslo-i18n >= 1.5.0
-Requires:         python-oslo-log >= 1.8.0
-Requires:         python-oslo-serialization >= 1.4.0
+Requires:         python-oslo-config >= 2:3.14.0
+Requires:         python-oslo-db >= 4.10.0
+Requires:         python-oslo-i18n >= 2.1.0
+Requires:         python-oslo-log >= 1.14.0
+Requires:         python-oslo-serialization >= 1.19.0
 Requires:         python-oslo-utils >= 1.4.0
 Requires:         python-paramiko
 Requires:         python-pecan
@@ -47,11 +48,17 @@ Requires:         python-prettytable
 Requires:         PyYAML
 Requires:         python-psycopg2
 Requires:         python-designateclient
-Requires:         python-glanceclient >= 1.8.0
+Requires:         python-gnocchiclient >= 2.2.0
+Requires:         python-keystoneauth1 >= 2.10.0
+Requires:         python-magnumclient >= 2.0.0
+Requires:         python-manilaclient >= 1.10.0
+Requires:         python-mistralclient >= 2.0.0
+Requires:         python-muranoclient >= 0.8.2
+Requires:         python-glanceclient >= 2.3.0
 Requires:         python-keystoneclient
 Requires:         python-manila >= 1.3.0
 Requires:         python-novaclient >= 2.29.0
-Requires:         python-neutronclient >= 2.6.0
+Requires:         python-neutronclient >= 5.1.0
 Requires:         python-cinderclient
 Requires:         python-heatclient
 Requires:         python-ceilometerclient
