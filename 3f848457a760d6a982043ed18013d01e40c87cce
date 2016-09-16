@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "facab960_f6717a78",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2016-09-16T13:21:42Z",
+      "side": 1,
+      "message": "These are hard dependencies as per the codebase: https://github.com/openstack/rally/blob/b6bedc5b7807f024a76e38f29318d1c140692b7f/rally/osclients.py#L657",
+      "parentUuid": "facab960_901756a3",
+      "revId": "3f848457a760d6a982043ed18013d01e40c87cce",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "facab960_b0ab7a88",
         "filename": "openstack-rally.spec",
         "patchSetId": 2
