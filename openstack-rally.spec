@@ -114,8 +114,10 @@ rm -rf {test-,}requirements.txt
 mkdir -p %{buildroot}/%{_sysconfdir}/bash_completion.d
 mv %{buildroot}/usr/etc/bash_completion.d/rally.bash_completion %{buildroot}/%{_sysconfdir}/bash_completion.d
 
-install -d -m 755 %{buildroot}%{_sysconfdir}/%{project}
-install -p -D -m 640 etc/%{project}/%{project}.conf.sample %{buildroot}%{_sysconfdir}/%{project}/%{project}.conf
+# Generate tempest config
+mkdir -p %{buildroot}%{_sysconfdir}/%{project}/
+oslo-config-generator --config-file etc/rally/rally-config-generator.conf \
+    --output-file %{buildroot}%{_sysconfdir}/%{project}/rally.conf
 
 # remove unnecessary files
 rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment
