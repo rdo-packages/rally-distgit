@@ -16,6 +16,24 @@
       "revId": "7b6e7819a95c6e6102e58339378b65bc95ecad31",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dacfb570_077ebaae",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2016-09-29T12:45:45Z",
+      "side": 0,
+      "message": "Sorry, it got removed in the previous changes. I have modified and fixed it in https://review.rdoproject.org/r/#/c/2854/ . I will do a cherry-pick from there.",
+      "parentUuid": "dacfb570_e46b9483",
+      "revId": "7b6e7819a95c6e6102e58339378b65bc95ecad31",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
