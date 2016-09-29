@@ -56,6 +56,7 @@ Requires:         python-requests >= 2.5.2
 Requires:         python-subunit
 Requires:         python-sqlalchemy
 Requires:         python-six >= 1.9.0
+Requires:         python-sphinx
 
 %description
 Rally is a benchmarking tool capable of performing specific,
@@ -97,8 +98,6 @@ This package contains documentation files for Rally.
 %prep
 %setup -q -n %{project}-%{upstream_version}
 
-# Remove the requirements file so that pbr hooks don't add it
-# to distutils requires_dist config
 rm -rf {test-,}requirements.txt
 
 %build
@@ -114,11 +113,18 @@ rm -rf {test-,}requirements.txt
 mkdir -p %{buildroot}/%{_sysconfdir}/bash_completion.d
 mv %{buildroot}/usr/etc/bash_completion.d/rally.bash_completion %{buildroot}/%{_sysconfdir}/bash_completion.d
 
-install -d -m 755 %{buildroot}%{_sysconfdir}/%{project}
-install -p -D -m 640 etc/%{project}/%{project}.conf.sample %{buildroot}%{_sysconfdir}/%{project}/%{project}.conf
+# Generate tempest config
+install -d -m 755 %{buildroot}%{_sysconfdir}/%{project}/
+PYTHONPATH=. oslo-config-generator --config-file etc/rally/rally-config-generator.conf \
+                      --output-file %{buildroot}%{_sysconfdir}/%{project}/rally.conf
+
+# fix config permission
+chmod 644 %{buildroot}%{_sysconfdir}/%{project}/rally.conf
 
 # remove unnecessary files
-rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment
+rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/devstack
+rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/lxc
+rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc
 
 %files
 %license LICENSE
