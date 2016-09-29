@@ -16,6 +16,20 @@ BuildArch:        noarch
 BuildRequires:    python2-devel
 BuildRequires:    python-pbr
 BuildRequires:    python-setuptools
+# BuildRequires for oslo-config-generators
+BuildRequires:    python-oslo-config >= 2:3.14.0
+BuildRequires:    python-oslo-log >= 1.14.0
+BuildRequires:    python-decorator
+BuildRequires:    python-oslo-db >= 4.10.0
+BuildRequires:    python-jsonschema
+BuildRequires:    python-novaclient >= 2.29.0
+BuildRequires:    python-keystoneclient
+BuildRequires:    python-neutronclient >= 5.1.0
+BuildRequires:    python-glanceclient >= 2.3.0
+BuildRequires:    python-saharaclient >= 0.18.0
+BuildRequires:    python-paramiko
+BuildRequires:    python-sphinx
+BuildRequires:    python-oslo-sphinx
 
 Requires:         python-alembic >= 0.8.4
 Requires:         python-boto
@@ -56,6 +70,7 @@ Requires:         python-requests >= 2.5.2
 Requires:         python-subunit
 Requires:         python-sqlalchemy
 Requires:         python-six >= 1.9.0
+Requires:         python-sphinx
 
 %description
 Rally is a benchmarking tool capable of performing specific,
@@ -67,23 +82,9 @@ Summary:    Documentation for OpenStack Rally
 
 Requires:       %{name} = %{version}-%{release}
 
-BuildRequires:  python-sphinx
-BuildRequires:  python-oslo-sphinx
-BuildRequires:  python-decorator
-BuildRequires:  python-jsonschema
-BuildRequires:  python-oslo-config >= 2:3.14.0
 BuildRequires:  python-oslo-utils
 BuildRequires:  python-prettytable
-BuildRequires:  python-oslo-log >= 1.14.0
-BuildRequires:  python-keystoneclient
 BuildRequires:  PyYAML
-BuildRequires:  python-oslo-db >= 4.10.0
-BuildRequires:  python-paramiko
-BuildRequires:  python-novaclient
-BuildRequires:  python-glanceclient >= 2.3.0
-BuildRequires:  python-neutronclient >= 5.1.0
-BuildRequires:  python-novaclient >= 2.29.0
-BuildRequires:  python-saharaclient >= 0.18.0
 BuildRequires:  python-subunit
 BuildRequires:  python-boto
 
@@ -97,8 +98,6 @@ This package contains documentation files for Rally.
 %prep
 %setup -q -n %{project}-%{upstream_version}
 
-# Remove the requirements file so that pbr hooks don't add it
-# to distutils requires_dist config
 rm -rf {test-,}requirements.txt
 
 %build
@@ -116,11 +115,18 @@ PYTHONPATH=. oslo-config-generator --config-file=etc/rally/rally-config-generato
 mkdir -p %{buildroot}/%{_sysconfdir}/bash_completion.d
 mv %{buildroot}/usr/etc/bash_completion.d/rally.bash_completion %{buildroot}/%{_sysconfdir}/bash_completion.d
 
-install -d -m 755 %{buildroot}%{_sysconfdir}/%{project}
-install -p -D -m 640 etc/%{project}/%{project}.conf.sample %{buildroot}%{_sysconfdir}/%{project}/%{project}.conf
+# Generate tempest config
+install -d -m 755 %{buildroot}%{_sysconfdir}/%{project}/
+PYTHONPATH=. oslo-config-generator --config-file etc/rally/rally-config-generator.conf \
+                      --output-file %{buildroot}%{_sysconfdir}/%{project}/rally.conf
+
+# fix config permission
+chmod 644 %{buildroot}%{_sysconfdir}/%{project}/rally.conf
 
 # remove unnecessary files
-rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment
+rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/devstack
+rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/lxc
+rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc
 
 %files
 %license LICENSE
