@@ -136,3 +136,4 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment
 %endif
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/rally/commit/?id=a28e96ecf571b4e44045e55cf585b1a5453ae7db
