@@ -16,6 +16,20 @@ BuildArch:        noarch
 BuildRequires:    python2-devel
 BuildRequires:    python-pbr
 BuildRequires:    python-setuptools
+# BuildRequires for oslo-config-generators
+BuildRequires:    python-oslo-config >= 2:3.14.0
+BuildRequires:    python-oslo-log >= 1.14.0
+BuildRequires:    python-decorator
+BuildRequires:    python-oslo-db >= 4.10.0
+BuildRequires:    python-jsonschema
+BuildRequires:    python-novaclient >= 2.29.0
+BuildRequires:    python-keystoneclient
+BuildRequires:    python-neutronclient >= 5.1.0
+BuildRequires:    python-glanceclient >= 2.3.0
+BuildRequires:    python-saharaclient >= 0.18.0
+BuildRequires:    python-paramiko
+BuildRequires:    python-sphinx
+BuildRequires:    python-oslo-sphinx
 
 Requires:         python-alembic >= 0.8.4
 Requires:         python-boto
@@ -68,23 +82,9 @@ Summary:    Documentation for OpenStack Rally
 
 Requires:       %{name} = %{version}-%{release}
 
-BuildRequires:  python-sphinx
-BuildRequires:  python-oslo-sphinx
-BuildRequires:  python-decorator
-BuildRequires:  python-jsonschema
-BuildRequires:  python-oslo-config >= 2:3.14.0
 BuildRequires:  python-oslo-utils
 BuildRequires:  python-prettytable
-BuildRequires:  python-oslo-log >= 1.14.0
-BuildRequires:  python-keystoneclient
 BuildRequires:  PyYAML
-BuildRequires:  python-oslo-db >= 4.10.0
-BuildRequires:  python-paramiko
-BuildRequires:  python-novaclient
-BuildRequires:  python-glanceclient >= 2.3.0
-BuildRequires:  python-neutronclient >= 5.1.0
-BuildRequires:  python-novaclient >= 2.29.0
-BuildRequires:  python-saharaclient >= 0.18.0
 BuildRequires:  python-subunit
 BuildRequires:  python-boto
 
