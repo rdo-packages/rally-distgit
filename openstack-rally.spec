@@ -16,6 +16,7 @@ BuildArch:        noarch
 BuildRequires:    python2-devel
 BuildRequires:    python-pbr
 BuildRequires:    python-setuptools
+BuildRequires:    python-oslo-config >= 2:3.14.0
 
 Requires:         python-alembic >= 0.8.4
 Requires:         python-boto
