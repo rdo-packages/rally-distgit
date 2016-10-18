@@ -23,6 +23,7 @@ BuildRequires:    python-decorator
 BuildRequires:    python-oslo-db >= 4.10.0
 BuildRequires:    python-jsonschema
 BuildRequires:    python-novaclient >= 2.29.0
+BuildRequires:    python-barbicanclient >= 4.0.1
 BuildRequires:    python-keystoneclient
 BuildRequires:    python-neutronclient >= 5.1.0
 BuildRequires:    python-glanceclient >= 2.3.0
@@ -46,6 +47,7 @@ Requires:         python-oslo-utils >= 1.4.0
 Requires:         python-paramiko
 Requires:         python-prettytable
 Requires:         PyYAML
+Requires:         python-barbicanclient >= 4.0.1
 Requires:         python-designateclient
 Requires:         python-gnocchiclient >= 2.2.0
 Requires:         python-keystoneauth1 >= 2.10.0
