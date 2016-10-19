@@ -101,8 +101,6 @@ This package contains documentation files for Rally.
 rm -rf {test-,}requirements.txt
 
 %build
-PYTHONPATH=. oslo-config-generator --config-file=etc/rally/rally-config-generator.conf
-
 %{__python2} setup.py build
 
 # for Documentation
