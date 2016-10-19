@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7adec928_2474969b",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 127
+      },
+      "writtenOn": "2016-10-19T14:46:22Z",
+      "side": 1,
+      "message": "This is a bad cherry-pick from rpm-master\n\nThis line was removed in that commit",
+      "revId": "8894001e98d5062595cb3bb925925cf92dd71f4a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
