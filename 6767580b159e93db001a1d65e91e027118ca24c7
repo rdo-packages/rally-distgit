@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7adec928_64577e03",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-10-19T14:32:42Z",
+      "side": 1,
+      "message": "Is that really a _runtime_ dep?",
+      "revId": "6767580b159e93db001a1d65e91e027118ca24c7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
