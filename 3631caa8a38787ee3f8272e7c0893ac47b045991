@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7adec928_4431a2a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-10-19T16:34:46Z",
+      "side": 1,
+      "message": "BTW where is that commit coming from?\nThis is rpm-master, there cannot be cherry picks on it by definition :)",
+      "revId": "3631caa8a38787ee3f8272e7c0893ac47b045991",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
