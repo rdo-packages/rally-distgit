@@ -70,6 +70,24 @@
       "revId": "6767580b159e93db001a1d65e91e027118ca24c7",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7adec928_243736b2",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2016-10-19T15:42:17Z",
+      "side": 1,
+      "message": "Here it is used in rally: http://git.openstack.org/cgit/openstack/rally/tree/rally/common/plugin/info.py#n18",
+      "parentUuid": "7adec928_64577e03",
+      "revId": "6767580b159e93db001a1d65e91e027118ca24c7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
