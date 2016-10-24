@@ -3,7 +3,7 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-%{project}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}
 Summary:          Benchmarking tool for OpenStack
 
@@ -142,6 +142,9 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/provi
 %endif
 
 %changelog
+* Mon Oct 24 2016 Jon Schlueter <jschluet@redhat.com> 0.7.0-1
+- Update to 0.7.0
+
 * Fri Sep 16 2016 Haikel Guemar <hguemar@fedoraproject.org> 0.6.0-1
 - Update to 0.6.0
 
