@@ -148,3 +148,4 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/provi
 * Fri Sep 16 2016 Haikel Guemar <hguemar@fedoraproject.org> 0.6.0-1
 - Update to 0.6.0
 
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/rally/commit/?id=7d76719cdab94167e852a0b78ab7334c2b8fa6b8
