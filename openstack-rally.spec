@@ -30,6 +30,7 @@ BuildRequires:    python-saharaclient >= 0.18.0
 BuildRequires:    python-paramiko
 BuildRequires:    python-sphinx
 BuildRequires:    python-oslo-sphinx
+BuildRequires:    python-os-faults
 
 Requires:         python-alembic >= 0.8.4
 Requires:         python-boto
@@ -71,6 +72,7 @@ Requires:         python-subunit
 Requires:         python-sqlalchemy
 Requires:         python-six >= 1.9.0
 Requires:         python-sphinx
+Requires:         python-os-faults
 
 %description
 Rally is a benchmarking tool capable of performing specific,
