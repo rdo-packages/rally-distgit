@@ -97,6 +97,9 @@ This package contains documentation files for Rally.
 
 %prep
 %setup -q -n %{project}-%{upstream_version}
+# TODO remove when os-faults is packaged
+rm rally/plugins/openstack/hook/fault_injection.py
+rm tests/unit/plugins/openstack/hook/test_fault_injection.py
 
 rm -rf {test-,}requirements.txt
 
