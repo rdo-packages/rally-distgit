@@ -141,6 +141,7 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/provi
 %doc doc/build/html
 %endif
 
+
 %changelog
 * Mon Oct 24 2016 Jon Schlueter <jschluet@redhat.com> 0.7.0-1
 - Update to 0.7.0
