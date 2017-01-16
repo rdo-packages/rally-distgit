@@ -31,6 +31,7 @@ BuildRequires:    python-paramiko
 BuildRequires:    python-sphinx
 BuildRequires:    python-oslo-sphinx
 BuildRequires:    python-os-faults
+BuildRequires:    python-subunit
 
 Requires:         python-alembic >= 0.8.4
 Requires:         python-boto
