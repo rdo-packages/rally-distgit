@@ -3,8 +3,8 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-%{project}
-Version:          XXX
-Release:          XXX
+Version:          0.8.1
+Release:          1%{?dist}
 Summary:          Benchmarking System for OpenStack
 
 License:          ASL 2.0
@@ -145,3 +145,5 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/provi
 %endif
 
 %changelog
+* Tue Feb 14 2017 Chandan Kumar <amoralej@redhat.com> 0.8.1-1
+- Update to 0.8.1
