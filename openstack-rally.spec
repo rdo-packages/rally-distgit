@@ -48,16 +48,11 @@ Requires:         python-oslo-utils >= 3.18.0
 Requires:         python-paramiko
 Requires:         python-prettytable
 Requires:         PyYAML
-Requires:         python-designateclient
 Requires:         python-gnocchiclient >= 2.7.0
 Requires:         python-keystoneauth1 >= 2.18.0
-Requires:         python-magnumclient >= 2.0.0
-Requires:         python-manilaclient >= 1.10.0
 Requires:         python-mistralclient >= 2.0.0
-Requires:         python-muranoclient >= 0.8.2
 Requires:         python-glanceclient >= 1:2.5.0
 Requires:         python-keystoneclient
-Requires:         python-manilaclient
 Requires:         python-novaclient >= 1:6.0.0
 Requires:         python-neutronclient >= 5.1.0
 Requires:         python-cinderclient
@@ -66,7 +61,6 @@ Requires:         python-ceilometerclient
 Requires:         python-ironicclient
 Requires:         python-saharaclient >= 1.1.0
 Requires:         python-swiftclient >= 3.2.0
-Requires:         python-troveclient
 Requires:         python-zaqarclient
 Requires:         python-requests >= 2.10.0
 Requires:         python-subunit
