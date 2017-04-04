@@ -68,6 +68,7 @@ Requires:         python-sqlalchemy
 Requires:         python-six >= 1.9.0
 Requires:         python-sphinx
 Requires:         python-os-faults
+Requires:         python-virtualenv
 
 %description
 Rally is a benchmarking tool capable of performing specific,
