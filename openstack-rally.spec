@@ -13,6 +13,7 @@ Source0:          https://tarballs.openstack.org/rally/rally-%{upstream_version}
 
 BuildArch:        noarch
 
+BuildRequires:    git
 BuildRequires:    python2-devel
 BuildRequires:    python-pbr
 BuildRequires:    python-setuptools
@@ -93,7 +94,7 @@ This package contains documentation files for Rally.
 %endif
 
 %prep
-%setup -q -n %{project}-%{upstream_version}
+%autosetup -S git -n %{project}-%{upstream_version}
 
 rm -rf {test-,}requirements.txt
 
