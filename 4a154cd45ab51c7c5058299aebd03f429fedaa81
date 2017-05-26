@@ -1,0 +1,8 @@
+Code-Review+2: Javier Peña <jpena@redhat.com>
+Workflow+1: Javier Peña <jpena@redhat.com>
+Verified+2: Javier Peña <jpena@redhat.com>
+Submitted-by: Javier Peña <jpena@redhat.com>
+Submitted-at: Fri, 26 May 2017 13:47:52 +0000
+Reviewed-on: https://review.rdoproject.org/r/6847
+Project: openstack/rally-distgit
+Branch: refs/heads/rpm-master
