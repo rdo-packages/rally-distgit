@@ -3,7 +3,7 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-%{project}
-Version:          0.7.0
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          Benchmarking tool for OpenStack
 
@@ -30,6 +30,8 @@ BuildRequires:    python-saharaclient >= 0.18.0
 BuildRequires:    python-paramiko
 BuildRequires:    python-sphinx
 BuildRequires:    python-oslo-sphinx
+BuildRequires:    python-os-faults
+BuildRequires:    python-subunit
 
 Requires:         python-alembic >= 0.8.4
 Requires:         python-boto
@@ -71,6 +73,7 @@ Requires:         python-subunit
 Requires:         python-sqlalchemy
 Requires:         python-six >= 1.9.0
 Requires:         python-sphinx
+Requires:         python-os-faults
 
 %description
 Rally is a benchmarking tool capable of performing specific,
@@ -142,6 +145,10 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/provi
 %endif
 
 %changelog
+* Wed June 07 2017 Chandan Kumar <chkumar@redhat.com> 0.9.1-1
+- Bump to 0.9.1
+- Added python-subunit and python-os-faults as BR
+
 * Mon Oct 24 2016 Jon Schlueter <jschluet@redhat.com> 0.7.0-1
 - Update to 0.7.0
 
