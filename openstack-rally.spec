@@ -69,6 +69,7 @@ Requires:         python-sqlalchemy
 Requires:         python-six >= 1.9.0
 Requires:         python-sphinx
 Requires:         python-os-faults
+Requires:         python-osprofiler
 
 %description
 Rally is a benchmarking tool capable of performing specific,
@@ -85,6 +86,7 @@ BuildRequires:  python-prettytable
 BuildRequires:  PyYAML
 BuildRequires:  python-subunit
 BuildRequires:  python-boto
+BuildRequires:  python-osprofiler
 
 %description doc
 Rally is a benchmarking tool capable of performing specific,
@@ -124,6 +126,10 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/devstack
 rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/lxc
 rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc
 
+# Include Samples as it contains rally plugins and deployment configs
+mkdir -p %{buildroot}%{_datarootdir}/%{name}
+cp -pr samples %{buildroot}%{_datarootdir}/%{name}
+
 %files
 %license LICENSE
 %{python2_sitelib}/%{project}
@@ -132,6 +138,7 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/provi
 %{_bindir}/%{project}
 %{_bindir}/%{project}-manage
 %{_sysconfdir}/bash_completion.d/rally.bash_completion
+%{_datarootdir}/%{name}/samples
 
 %if 0%{?with_doc}
 %files doc
