@@ -124,6 +124,10 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/devstack
 rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/lxc
 rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc
 
+# Include Samples as it contains rally plugins and deployment configs
+mkdir -p %{buildroot}%{_datarootdir}/%{name}
+cp -pr samples %{buildroot}%{_datarootdir}/%{name}
+
 %files
 %license LICENSE
 %{python2_sitelib}/%{project}
@@ -132,6 +136,7 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/provi
 %{_bindir}/%{project}
 %{_bindir}/%{project}-manage
 %{_sysconfdir}/bash_completion.d/rally.bash_completion
+%{_datarootdir}/%{name}/samples
 
 %if 0%{?with_doc}
 %files doc
@@ -140,4 +145,3 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/provi
 %endif
 
 %changelog
-
