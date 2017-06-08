@@ -102,12 +102,37 @@ This package contains documentation files for Rally.
 
 rm -rf {test-,}requirements.txt
 
+# Remove shebangs and fix permissions
+RPMLINT_OFFENDERS="rally/plugins/workload/siege.py \
+samples/plugins/unpack_plugins_samples.sh \
+samples/tasks/support/instance_linpack.sh \
+samples/tasks/support/instance_test.sh "
+sed -i '1{/^#!/d}' $RPMLINT_OFFENDERS
+chmod u=rw,go=r $RPMLINT_OFFENDERS
+
+# Fix permissions
+FILES="samples/tasks/scenarios/cinder/create-volume-and-clone.json \
+samples/tasks/scenarios/cinder/create-volume-and-clone.yaml \
+samples/tasks/scenarios/cinder/create-volume-from-snapshot.json \
+samples/tasks/scenarios/cinder/create-volume-from-snapshot.yaml \
+samples/tasks/scenarios/nova/boot-from-volume-and-delete.json \
+samples/tasks/scenarios/nova/boot-from-volume-and-delete.yaml \
+samples/tasks/scenarios/nova/boot-from-volume.json \
+samples/tasks/scenarios/nova/boot-from-volume-snapshot.json \
+samples/tasks/scenarios/nova/boot-from-volume-snapshot.yaml \
+samples/tasks/scenarios/nova/boot-from-volume.yaml \
+samples/tasks/scenarios/nova/boot-server-from-volume-and-live-migrate.json \
+samples/tasks/scenarios/nova/boot-server-from-volume-and-live-migrate.yaml"
+chmod u=rw,go=r $FILES
+
 %build
 %{__python2} setup.py build
 
 # for Documentation
 %if 0%{?with_doc}
 %{__python2} setup.py build_sphinx
+# remove the sphinx-build leftovers
+rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %install
@@ -128,6 +153,10 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/devstack
 rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/lxc
 rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc
 
+# Include Samples as it contains rally plugins and deployment configs
+mkdir -p %{buildroot}%{_datarootdir}/%{name}
+cp -pr samples %{buildroot}%{_datarootdir}/%{name}
+
 %files
 %license LICENSE
 %{python2_sitelib}/%{project}
@@ -136,6 +165,7 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/provi
 %{_bindir}/%{project}
 %{_bindir}/%{project}-manage
 %{_sysconfdir}/bash_completion.d/rally.bash_completion
+%{_datarootdir}/%{name}/samples
 
 %if 0%{?with_doc}
 %files doc
@@ -144,4 +174,3 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/provi
 %endif
 
 %changelog
-
