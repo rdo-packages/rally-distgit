@@ -18,6 +18,7 @@ BuildRequires:    git
 BuildRequires:    python2-devel
 BuildRequires:    python-pbr
 BuildRequires:    python-setuptools
+BuildRequires:    openstack-macros
 # BuildRequires for oslo-config-generators
 BuildRequires:    python-oslo-config >= 2:3.14.0
 BuildRequires:    python-oslo-log >= 1.14.0
@@ -105,7 +106,10 @@ This package contains documentation files for Rally.
 %prep
 %autosetup -S git -n %{project}-%{upstream_version}
 
-rm -rf {test-,}requirements.txt
+%py_req_cleanup
+
+# Fix permissions
+chmod 644 `find samples/tasks/scenarios -type f -regex ".*\.\(yaml\|json\)" -print`
 
 %build
 %{__python2} setup.py build
@@ -113,6 +117,8 @@ rm -rf {test-,}requirements.txt
 # for Documentation
 %if 0%{?with_doc}
 %{__python2} setup.py build_sphinx
+# remove the sphinx-build leftovers
+rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %install
@@ -133,6 +139,10 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/devstack
 rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/lxc
 rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc
 
+# Include Samples as it contains rally plugins and deployment configs
+mkdir -p %{buildroot}%{_datarootdir}/%{name}
+cp -pr samples %{buildroot}%{_datarootdir}/%{name}
+
 %files
 %license LICENSE
 %{python2_sitelib}/%{project}
@@ -141,6 +151,7 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/provi
 %{_bindir}/%{project}
 %{_bindir}/%{project}-manage
 %{_sysconfdir}/bash_completion.d/rally.bash_completion
+%{_datarootdir}/%{name}/samples
 
 %if 0%{?with_doc}
 %files doc
@@ -149,4 +160,3 @@ rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/provi
 %endif
 
 %changelog
-
