@@ -69,6 +69,8 @@ Requires:         python-sqlalchemy
 Requires:         python-six >= 1.9.0
 Requires:         python-sphinx
 Requires:         python-os-faults
+Requires:         python-kubernetes
+Requires:         python-osprofiler
 
 %description
 Rally is a benchmarking tool capable of performing specific,
@@ -85,6 +87,8 @@ BuildRequires:  python-prettytable
 BuildRequires:  PyYAML
 BuildRequires:  python-subunit
 BuildRequires:  python-boto
+BuildRequires:  python-kubernetes
+BuildRequires:  python-osprofiler
 
 %description doc
 Rally is a benchmarking tool capable of performing specific,
