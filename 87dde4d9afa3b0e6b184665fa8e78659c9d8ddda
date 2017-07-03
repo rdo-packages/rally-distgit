@@ -34,6 +34,24 @@
       "revId": "87dde4d9afa3b0e6b184665fa8e78659c9d8ddda",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa7fdbe_7e04667e",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2017-07-03T13:00:30Z",
+      "side": 1,
+      "message": "Added fix upstream. https://review.openstack.org/#/c/479807/",
+      "parentUuid": "9aa7fdbe_3ee73e42",
+      "revId": "87dde4d9afa3b0e6b184665fa8e78659c9d8ddda",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
