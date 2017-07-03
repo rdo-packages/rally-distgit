@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa7fdbe_fedcd676",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-07-03T09:01:26Z",
+      "side": 1,
+      "message": "All these fixes (both shebangs and permissions) should be done upstream.",
+      "revId": "87dde4d9afa3b0e6b184665fa8e78659c9d8ddda",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
