@@ -33,6 +33,7 @@ BuildRequires:    python-sphinx
 BuildRequires:    python-oslo-sphinx
 BuildRequires:    python-os-faults
 BuildRequires:    python-subunit
+BuildRequires:    python-osprofiler
 
 Requires:         python-alembic >= 0.8.4
 Requires:         python-boto
@@ -88,7 +89,6 @@ BuildRequires:  PyYAML
 BuildRequires:  python-subunit
 BuildRequires:  python-boto
 BuildRequires:  python-kubernetes
-BuildRequires:  python-osprofiler
 
 %description doc
 Rally is a benchmarking tool capable of performing specific,
