@@ -1,6 +1,7 @@
 %global project rally
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
+%global with_kubernetes 1
 
 Name:             openstack-%{project}
 Version:          XXX
@@ -70,7 +71,9 @@ Requires:         python-sqlalchemy
 Requires:         python-six >= 1.9.0
 Requires:         python-sphinx
 Requires:         python-os-faults
+%if 0%{?with_kubernetes}
 Requires:         python-kubernetes
+%endif
 Requires:         python-osprofiler
 
 %description
@@ -88,7 +91,9 @@ BuildRequires:  python-prettytable
 BuildRequires:  PyYAML
 BuildRequires:  python-subunit
 BuildRequires:  python-boto
+%if 0%{?with_kubernetes}
 BuildRequires:  python-kubernetes
+%endif
 
 %description doc
 Rally is a benchmarking tool capable of performing specific,
