@@ -1,6 +1,7 @@
 %global project rally
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
+%global with_kubernetes 1
 
 Name:             openstack-%{project}
 Version:          XXX
@@ -33,7 +34,9 @@ BuildRequires:    python-sphinx
 BuildRequires:    python-oslo-sphinx
 BuildRequires:    python-os-faults
 BuildRequires:    python-subunit
+%if 0%{?with_kubernetes}
 BuildRequires:    python-osprofiler
+%endif
 
 Requires:         python-alembic >= 0.8.4
 Requires:         python-boto
@@ -70,7 +73,9 @@ Requires:         python-sqlalchemy
 Requires:         python-six >= 1.9.0
 Requires:         python-sphinx
 Requires:         python-os-faults
+%if 0%{?with_kubernetes}
 Requires:         python-kubernetes
+%endif
 Requires:         python-osprofiler
 
 %description
