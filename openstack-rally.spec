@@ -70,7 +70,6 @@ Requires:         python-requests >= 2.10.0
 Requires:         python-subunit
 Requires:         python-sqlalchemy
 Requires:         python-six >= 1.9.0
-Requires:         python-sphinx
 Requires:         python-os-faults
 %if 0%{?with_kubernetes}
 Requires:         python-kubernetes
