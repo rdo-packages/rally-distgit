@@ -145,6 +145,10 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %files
 %license LICENSE
 %{python2_sitelib}/%{project}
+%if 1%{?with_kubernetes}
+%{python2_sitelib}/%{project}/plugins/openstack/scenarios/magnum
+%{python2_sitelib}/%{project}/plugins/openstack/context/magnum
+%endif
 %{python2_sitelib}/%{project}*.egg-info
 %config(noreplace) %{_sysconfdir}/%{project}/%{project}.conf
 %{_bindir}/%{project}
