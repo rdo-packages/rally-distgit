@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_b33b8037",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-08-04T14:31:10Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these two lines be in an %else clause? If we enable kubernetes, we\u0027re both including and excluding those directories.",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 71
+      },
+      "revId": "0b4fcc23d84c143714d012b40f4d7a242df5ea0b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
