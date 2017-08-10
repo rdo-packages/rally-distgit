@@ -31,8 +31,6 @@ BuildRequires:    python-neutronclient >= 5.1.0
 BuildRequires:    python-glanceclient >= 2.3.0
 BuildRequires:    python-saharaclient >= 0.18.0
 BuildRequires:    python-paramiko
-BuildRequires:    python-sphinx
-BuildRequires:    python-oslo-sphinx
 BuildRequires:    python-os-faults
 BuildRequires:    python-subunit
 BuildRequires:    python-osprofiler
@@ -86,6 +84,8 @@ Summary:    Documentation for OpenStack Rally
 
 Requires:       %{name} = %{version}-%{release}
 
+BuildRequires:  python-sphinx
+BuildRequires:  python-oslo-sphinx
 BuildRequires:  python-oslo-utils
 BuildRequires:  python-prettytable
 BuildRequires:  PyYAML
