@@ -20,10 +20,10 @@ BuildRequires:    python-pbr
 BuildRequires:    python-setuptools
 BuildRequires:    openstack-macros
 # BuildRequires for oslo-config-generators
-BuildRequires:    python-oslo-config >= 2:3.14.0
-BuildRequires:    python-oslo-log >= 1.14.0
+BuildRequires:    python-oslo-config >= 2:4.0.0
+BuildRequires:    python-oslo-log >= 3.22.0
 BuildRequires:    python-decorator
-BuildRequires:    python-oslo-db >= 4.10.0
+BuildRequires:    python-oslo-db >= 4.15.0
 BuildRequires:    python-jsonschema
 BuildRequires:    python-novaclient >= 2.29.0
 BuildRequires:    python-keystoneclient
@@ -37,23 +37,23 @@ BuildRequires:    python-os-faults
 BuildRequires:    python-subunit
 BuildRequires:    python-osprofiler
 
-Requires:         python-alembic >= 0.8.4
+Requires:         python-alembic >= 0.8.7
 Requires:         python-boto
 Requires:         python-decorator
 Requires:         python-jinja2
 Requires:         python-jsonschema
 Requires:         python-netaddr
-Requires:         python-oslo-config >= 2:3.14.0
+Requires:         python-oslo-config >= 2:4.0.0
 Requires:         python-oslo-db >= 4.15.0
 Requires:         python-oslo-i18n >= 2.1.0
-Requires:         python-oslo-log >= 3.11.0
-Requires:         python-oslo-serialization >= 1.19.0
-Requires:         python-oslo-utils >= 3.18.0
+Requires:         python-oslo-log >= 3.22.0
+Requires:         python-oslo-serialization >= 1.10.0
+Requires:         python-oslo-utils >= 3.20.0
 Requires:         python-paramiko
 Requires:         python-prettytable
 Requires:         PyYAML
 Requires:         python-gnocchiclient >= 2.7.0
-Requires:         python-keystoneauth1 >= 2.18.0
+Requires:         python-keystoneauth1 >= 3.1.0
 Requires:         python-mistralclient >= 2.0.0
 Requires:         python-glanceclient >= 1:2.5.0
 Requires:         python-keystoneclient
@@ -75,6 +75,8 @@ Requires:         python-os-faults
 Requires:         python-kubernetes
 %endif
 Requires:         python-osprofiler
+Requires:         python-pbr
+Requires:         python-manilaclient
 
 %description
 Rally is a benchmarking tool capable of performing specific,
@@ -125,7 +127,7 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 mkdir -p %{buildroot}/%{_sysconfdir}/bash_completion.d
 mv %{buildroot}/usr/etc/bash_completion.d/rally.bash_completion %{buildroot}/%{_sysconfdir}/bash_completion.d
 
-# Generate tempest config
+# Generate Rally config
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{project}/
 PYTHONPATH=. oslo-config-generator --config-file etc/rally/rally-config-generator.conf \
                       --output-file %{buildroot}%{_sysconfdir}/%{project}/rally.conf
