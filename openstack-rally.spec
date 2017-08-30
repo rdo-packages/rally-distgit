@@ -4,8 +4,8 @@
 %global with_kubernetes 1
 
 Name:             openstack-%{project}
-Version:          0.9.1
-Release:          1%{?dist}
+Version:          XXX
+Release:          XXX
 Summary:          Benchmarking System for OpenStack
 
 License:          ASL 2.0
@@ -168,6 +168,3 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %endif
 
 %changelog
-* Fri Aug 25 2017 Alfredo Moralejo <amoralej@redhat.com> 0.9.1-1
-- Update to 0.9.1
-
