@@ -3,6 +3,10 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global with_kubernetes 1
 
+%global common_desc \
+Rally is a benchmarking tool capable of performing specific, \
+complex and reproducible test cases on real deployment scenarios.
+
 Name:             openstack-%{project}
 Version:          XXX
 Release:          XXX
@@ -77,8 +81,7 @@ Requires:         python-pbr
 Requires:         python-manilaclient
 
 %description
-Rally is a benchmarking tool capable of performing specific,
-complex and reproducible test cases on real deployment scenarios.
+%{common_desc}
 
 %if 0%{?with_doc}
 %package doc
@@ -98,8 +101,7 @@ BuildRequires:  python-kubernetes
 %endif
 
 %description doc
-Rally is a benchmarking tool capable of performing specific,
-complex and reproducible test cases on real deployment scenarios.
+%{common_desc}
 
 This package contains documentation files for Rally.
 %endif
