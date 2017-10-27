@@ -4,7 +4,7 @@
 %global with_kubernetes 1
 
 Name:             openstack-%{project}
-Version:          0.9.1
+Version:          0.10.0
 Release:          1%{?dist}
 Summary:          Benchmarking System for OpenStack
 
@@ -168,6 +168,9 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %endif
 
 %changelog
+* Fri Oct 27 2017 rdo-trunk <javier.pena@redhat.com> 0.10.0-1
+- Update to 0.10.0
+
 * Fri Aug 25 2017 Alfredo Moralejo <amoralej@redhat.com> 0.9.1-1
 - Update to 0.9.1
 
