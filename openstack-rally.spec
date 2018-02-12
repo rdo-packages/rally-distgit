@@ -20,65 +20,65 @@ BuildArch:        noarch
 
 BuildRequires:    git
 BuildRequires:    python2-devel
-BuildRequires:    python-pbr
-BuildRequires:    python-setuptools
+BuildRequires:    python2-pbr
+BuildRequires:    python2-setuptools
 BuildRequires:    openstack-macros
 # BuildRequires for oslo-config-generators
-BuildRequires:    python-oslo-config >= 2:4.0.0
-BuildRequires:    python-oslo-log >= 3.22.0
-BuildRequires:    python-decorator
-BuildRequires:    python-oslo-db >= 4.15.0
-BuildRequires:    python-jsonschema
-BuildRequires:    python-novaclient >= 2.29.0
-BuildRequires:    python-keystoneclient
-BuildRequires:    python-neutronclient >= 5.1.0
-BuildRequires:    python-glanceclient >= 2.3.0
-BuildRequires:    python-saharaclient >= 0.18.0
-BuildRequires:    python-paramiko
-BuildRequires:    python-os-faults
-BuildRequires:    python-subunit
-BuildRequires:    python-osprofiler
+BuildRequires:    python2-oslo-config >= 2:4.0.0
+BuildRequires:    python2-oslo-log >= 3.22.0
+BuildRequires:    python2-decorator
+BuildRequires:    python2-oslo-db >= 4.15.0
+BuildRequires:    python2-jsonschema
+BuildRequires:    python2-novaclient >= 2.29.0
+BuildRequires:    python2-keystoneclient
+BuildRequires:    python2-neutronclient >= 5.1.0
+BuildRequires:    python2-glanceclient >= 2.3.0
+BuildRequires:    python2-saharaclient >= 0.18.0
+BuildRequires:    python2-paramiko
+BuildRequires:    python2-os-faults
+BuildRequires:    python2-subunit
+BuildRequires:    python2-osprofiler
 
-Requires:         python-alembic >= 0.8.7
-Requires:         python-boto
-Requires:         python-decorator
-Requires:         python-jinja2
-Requires:         python-jsonschema
-Requires:         python-netaddr
-Requires:         python-oslo-config >= 2:4.0.0
-Requires:         python-oslo-db >= 4.15.0
-Requires:         python-oslo-i18n >= 2.1.0
-Requires:         python-oslo-log >= 3.22.0
-Requires:         python-oslo-serialization >= 1.10.0
-Requires:         python-oslo-utils >= 3.20.0
-Requires:         python-paramiko
-Requires:         python-prettytable
+Requires:         python2-alembic >= 0.8.7
+Requires:         python2-boto
+Requires:         python2-decorator
+Requires:         python2-jinja2
+Requires:         python2-jsonschema
+Requires:         python2-netaddr
+Requires:         python2-oslo-config >= 2:4.0.0
+Requires:         python2-oslo-db >= 4.15.0
+Requires:         python2-oslo-i18n >= 2.1.0
+Requires:         python2-oslo-log >= 3.22.0
+Requires:         python2-oslo-serialization >= 1.10.0
+Requires:         python2-oslo-utils >= 3.20.0
+Requires:         python2-paramiko
+Requires:         python2-prettytable
 Requires:         PyYAML
-Requires:         python-gnocchiclient >= 2.7.0
-Requires:         python-keystoneauth1 >= 3.1.0
-Requires:         python-mistralclient >= 2.0.0
-Requires:         python-glanceclient >= 1:2.5.0
-Requires:         python-keystoneclient
-Requires:         python-novaclient >= 1:6.0.0
-Requires:         python-neutronclient >= 5.1.0
-Requires:         python-cinderclient
-Requires:         python-heatclient
-Requires:         python-ceilometerclient
-Requires:         python-ironicclient
-Requires:         python-saharaclient >= 1.1.0
-Requires:         python-swiftclient >= 3.2.0
-Requires:         python-zaqarclient
-Requires:         python-requests >= 2.10.0
-Requires:         python-subunit
-Requires:         python-sqlalchemy
-Requires:         python-six >= 1.9.0
-Requires:         python-os-faults
+Requires:         python2-gnocchiclient >= 2.7.0
+Requires:         python2-keystoneauth1 >= 3.1.0
+Requires:         python2-mistralclient >= 2.0.0
+Requires:         python2-glanceclient >= 1:2.5.0
+Requires:         python2-keystoneclient
+Requires:         python2-novaclient >= 1:6.0.0
+Requires:         python2-neutronclient >= 5.1.0
+Requires:         python2-cinderclient
+Requires:         python2-heatclient
+Requires:         python2-ceilometerclient
+Requires:         python2-ironicclient
+Requires:         python2-saharaclient >= 1.1.0
+Requires:         python2-swiftclient >= 3.2.0
+Requires:         python2-zaqarclient
+Requires:         python2-requests >= 2.10.0
+Requires:         python2-subunit
+Requires:         python2-sqlalchemy
+Requires:         python2-six >= 1.9.0
+Requires:         python2-os-faults
 %if 0%{?with_kubernetes}
-Requires:         python-kubernetes
+Requires:         python2-kubernetes
 %endif
-Requires:         python-osprofiler
-Requires:         python-pbr
-Requires:         python-manilaclient
+Requires:         python2-osprofiler
+Requires:         python2-pbr
+Requires:         python2-manilaclient
 
 %description
 %{common_desc}
@@ -89,15 +89,15 @@ Summary:    Documentation for OpenStack Rally
 
 Requires:       %{name} = %{version}-%{release}
 
-BuildRequires:  python-sphinx
-BuildRequires:  python-oslo-sphinx
-BuildRequires:  python-oslo-utils
-BuildRequires:  python-prettytable
+BuildRequires:  python2-sphinx
+BuildRequires:  python2-oslo-sphinx
+BuildRequires:  python2-oslo-utils
+BuildRequires:  python2-prettytable
 BuildRequires:  PyYAML
-BuildRequires:  python-subunit
-BuildRequires:  python-boto
+BuildRequires:  python2-subunit
+BuildRequires:  python2-boto
 %if 0%{?with_kubernetes}
-BuildRequires:  python-kubernetes
+BuildRequires:  python2-kubernetes
 %endif
 
 %description doc
