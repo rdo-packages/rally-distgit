@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7aaa499b_856f0192",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-02-12T14:16:15Z",
+      "side": 1,
+      "message": "lowercase python2-",
+      "range": {
+        "startLine": 45,
+        "startChar": 18,
+        "endLine": 45,
+        "endChar": 32
+      },
+      "revId": "e2dc27b08dea50ae2a4bc5f929bf6d85daac049a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
