@@ -178,3 +178,4 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %changelog
 * Mon Feb 19 2018 Chandan Kumar <chkumar@redhat.com> 0.11.0-1
 - Updated to 0.11.0
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/rally/commit/?id=5dfda156e39693870dcf6c6af89b317a6d57a1d2
