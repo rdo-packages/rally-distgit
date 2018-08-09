@@ -13,7 +13,7 @@ Release:          XXX
 Summary:          Benchmarking System for OpenStack
 
 License:          ASL 2.0
-URL:              http://wiki.openstack.org/wiki/Rally
+URL:              https://rally.readthedocs.io
 Source0:          https://tarballs.openstack.org/rally/rally-%{upstream_version}.tar.gz
 
 BuildArch:        noarch
@@ -79,9 +79,6 @@ Requires:         python2-subunit
 Requires:         python2-sqlalchemy
 Requires:         python2-six >= 1.9.0
 Requires:         python2-os-faults
-%if 0%{?with_kubernetes}
-Requires:         python2-kubernetes
-%endif
 Requires:         python2-osprofiler
 Requires:         python2-pbr
 Requires:         python2-manilaclient
@@ -102,9 +99,6 @@ BuildRequires:  python2-prettytable
 BuildRequires:  PyYAML
 BuildRequires:  python2-subunit
 BuildRequires:  python2-boto
-%if 0%{?with_kubernetes}
-BuildRequires:  python2-kubernetes
-%endif
 
 %description doc
 %{common_desc}
@@ -143,11 +137,6 @@ PYTHONPATH=. oslo-config-generator --config-file etc/rally/rally-config-generato
 # fix config permission
 chmod 644 %{buildroot}%{_sysconfdir}/%{project}/rally.conf
 
-# remove unnecessary files
-rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/devstack
-rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/engines/lxc
-rm -fr %{buildroot}%{python2_sitelib}/%{project}/deployment/serverprovider/providers/lxc
-
 # Include Samples as it contains rally plugins and deployment configs
 mkdir -p %{buildroot}%{_datarootdir}/%{name}
 cp -pr samples %{buildroot}%{_datarootdir}/%{name}
@@ -155,13 +144,6 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %files
 %license LICENSE
 %{python2_sitelib}/%{project}
-%if 0%{?with_kubernetes}
-%{python2_sitelib}/%{project}/plugins/openstack/scenarios/magnum
-%{python2_sitelib}/%{project}/plugins/openstack/context/magnum
-%else
-%exclude %{python2_sitelib}/%{project}/plugins/openstack/scenarios/magnum
-%exclude %{python2_sitelib}/%{project}/plugins/openstack/context/magnum
-%endif
 %{python2_sitelib}/%{project}*.egg-info
 %config(noreplace) %{_sysconfdir}/%{project}/%{project}.conf
 %{_bindir}/%{project}
