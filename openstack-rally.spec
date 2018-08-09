@@ -13,7 +13,7 @@ Release:          XXX
 Summary:          Benchmarking System for OpenStack
 
 License:          ASL 2.0
-URL:              http://wiki.openstack.org/wiki/Rally
+URL:              https://rally.readthedocs.io
 Source0:          https://tarballs.openstack.org/rally/rally-%{upstream_version}.tar.gz
 
 BuildArch:        noarch
