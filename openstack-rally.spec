@@ -56,8 +56,6 @@ Requires:         python2-oslo-config >= 2:4.0.0
 Requires:         python2-oslo-db >= 4.15.0
 Requires:         python2-oslo-i18n >= 2.1.0
 Requires:         python2-oslo-log >= 3.22.0
-Requires:         python2-oslo-serialization >= 1.10.0
-Requires:         python2-oslo-utils >= 3.20.0
 Requires:         python2-paramiko
 Requires:         python2-prettytable
 Requires:         python2-gnocchiclient >= 2.7.0
@@ -94,7 +92,6 @@ Requires:       %{name} = %{version}-%{release}
 
 BuildRequires:  python2-sphinx
 BuildRequires:  python2-oslo-sphinx
-BuildRequires:  python2-oslo-utils
 BuildRequires:  python2-prettytable
 BuildRequires:  PyYAML
 BuildRequires:  python2-subunit
