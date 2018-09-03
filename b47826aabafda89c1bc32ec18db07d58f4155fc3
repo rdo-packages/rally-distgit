@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9abe1de1_86e92b1d",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2018-09-03T14:25:37Z",
+      "side": 1,
+      "message": "This should be moved before %description. I\u0027ve checked the result, and it does not require python2-rally.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 6
+      },
+      "revId": "b47826aabafda89c1bc32ec18db07d58f4155fc3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_66ee1724",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2018-09-03T14:25:37Z",
+      "side": 1,
+      "message": "We need to handle the different executables here, otherwise we could have the python3 rally included in the python2 build (either that, or we make python2 and python3 builds mutually exclusive).",
+      "revId": "b47826aabafda89c1bc32ec18db07d58f4155fc3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
