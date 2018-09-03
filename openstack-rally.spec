@@ -9,11 +9,11 @@ complex and reproducible test cases on real deployment scenarios.
 
 Name:             openstack-%{project}
 Version:          0.11.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Benchmarking System for OpenStack
 
 License:          ASL 2.0
-URL:              http://wiki.openstack.org/wiki/Rally
+URL:              https://rally.readthedocs.io
 Source0:          https://tarballs.openstack.org/rally/rally-%{upstream_version}.tar.gz
 
 BuildArch:        noarch
@@ -176,5 +176,8 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %endif
 
 %changelog
+* Mon Sept 03 2018 Chandan Kumar <chkumar@redhat.com> 0.11.0-2
+- Fixed URL
+
 * Mon Feb 19 2018 Chandan Kumar <chkumar@redhat.com> 0.11.0-1
 - Updated to 0.11.0
