@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9abe1de1_a6466fbd",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2018-09-04T10:54:50Z",
+      "side": 1,
+      "message": "Yes, correct, we can move it before %description.\nRegarding python2-rally subpackage, if we donot add Requires:python2-rally, on installing openstack-rally rpm, it will fails giving import errors.",
+      "parentUuid": "9abe1de1_86e92b1d",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 6
+      },
+      "revId": "b47826aabafda89c1bc32ec18db07d58f4155fc3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9abe1de1_66ee1724",
         "filename": "openstack-rally.spec",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2018-09-03T14:25:37Z",
       "side": 1,
       "message": "We need to handle the different executables here, otherwise we could have the python3 rally included in the python2 build (either that, or we make python2 and python3 builds mutually exclusive).",
+      "revId": "b47826aabafda89c1bc32ec18db07d58f4155fc3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_c64963d2",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2018-09-04T10:54:50Z",
+      "side": 1,
+      "message": "I think we donot need different executables. As executables will stay under openstack-rally package which will not get installed by python-rally package. This patch just split it into python2 and python3 subpackage so that it can be consumed as python library as a dependency for openstack-rally-plugins package https://review.rdoproject.org/r/16107",
+      "parentUuid": "9abe1de1_66ee1724",
       "revId": "b47826aabafda89c1bc32ec18db07d58f4155fc3",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
