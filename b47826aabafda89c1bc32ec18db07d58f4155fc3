@@ -81,6 +81,24 @@
       "revId": "b47826aabafda89c1bc32ec18db07d58f4155fc3",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_46d1d3cc",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2018-09-04T12:10:51Z",
+      "side": 1,
+      "message": "What I meant with my comment was that, if we run this under Fedora, we will get both the python2-rally and python3-rally subpackages, and the binaries in openstack-rally will depend on the python3 libraries.\n\nThis is ok, since in Fedora we make openstack-rally require python3-rally. However, in this case we should not even build python2-rally. This is a minor issue, though, I can live with it.",
+      "parentUuid": "9abe1de1_c64963d2",
+      "revId": "b47826aabafda89c1bc32ec18db07d58f4155fc3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
