@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9abe1de1_66c177e4",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2018-09-04T14:52:46Z",
+      "side": 1,
+      "message": "Why remove the python2-rally dependency when building on centos 7? We are breaking the current \"yum install openstack-rally\" path if we do so.",
+      "range": {
+        "startLine": 29,
+        "startChar": 53,
+        "endLine": 30,
+        "endChar": 6
+      },
+      "revId": "30413c26db144d6513a27b71c0b4ec0a3df168b6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
