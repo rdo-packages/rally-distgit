@@ -1,3 +1,14 @@
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
+%endif
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
 %global project rally
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
@@ -6,10 +17,6 @@
 %global common_desc \
 Rally is a benchmarking tool capable of performing specific, \
 complex and reproducible test cases on real deployment scenarios.
-
-%if 0%{?fedora} >= 24
-%global with_python3 1
-%endif
 
 Name:             openstack-%{project}
 Version:          XXX
@@ -25,151 +32,90 @@ BuildArch:        noarch
 BuildRequires:    git
 BuildRequires:    openstack-macros
 
-%if 0%{?with_python3}
-Requires:       python3-rally = %{version}-%{release}
-%else
-Requires:       python2-rally = %{version}-%{release}
-%endif
+Requires:       python%{pyver}-rally = %{version}-%{release}
 
 %description
 %{common_desc}
 
-%package -n    python2-%{project}
+%package -n    python%{pyver}-%{project}
 Summary:       Rally Python library
 
-%{?python_provide:%python_provide python2-%{project}}
-BuildRequires:    python2-devel
-BuildRequires:    python2-pbr
-BuildRequires:    python2-setuptools
+%{?python_provide:%python_provide python%{pyver}-%{project}}
+%if %{pyver} == 3
+Obsoletes: python2-%{project} < %{version}-%{release}
+%endif
+BuildRequires:    python%{pyver}-devel
+BuildRequires:    python%{pyver}-pbr
+BuildRequires:    python%{pyver}-setuptools
 # BuildRequires for oslo-config-generators
-BuildRequires:    python2-oslo-config >= 2:4.0.0
-BuildRequires:    python2-oslo-log >= 3.22.0
-BuildRequires:    python2-oslo-db >= 4.15.0
-BuildRequires:    python2-jsonschema
-BuildRequires:    python2-novaclient >= 2.29.0
-BuildRequires:    python2-keystoneclient
-BuildRequires:    python2-neutronclient >= 5.1.0
-BuildRequires:    python2-glanceclient >= 2.3.0
-BuildRequires:    python2-saharaclient >= 0.18.0
-BuildRequires:    python2-paramiko
-BuildRequires:    python2-os-faults
-BuildRequires:    python2-subunit
-BuildRequires:    python2-osprofiler
+BuildRequires:    python%{pyver}-oslo-config >= 2:4.0.0
+BuildRequires:    python%{pyver}-oslo-log >= 3.22.0
+BuildRequires:    python%{pyver}-oslo-db >= 4.15.0
+BuildRequires:    python%{pyver}-jsonschema
+BuildRequires:    python%{pyver}-novaclient >= 2.29.0
+BuildRequires:    python%{pyver}-keystoneclient
+BuildRequires:    python%{pyver}-neutronclient >= 5.1.0
+BuildRequires:    python%{pyver}-glanceclient >= 2.3.0
+BuildRequires:    python%{pyver}-saharaclient >= 0.18.0
+BuildRequires:    python%{pyver}-paramiko
+BuildRequires:    python%{pyver}-os-faults
+BuildRequires:    python%{pyver}-subunit
+BuildRequires:    python%{pyver}-osprofiler
 
-Requires:         python2-alembic >= 0.8.7
-Requires:         python2-boto
-%if 0%{?fedora} >0
-Requires:         python2-decorator
-Requires:         python2-pyyaml
-BuildRequires:    python2-decorator
+# Handle python2 exception
+%if %{pyver} == 2
+BuildRequires:    python-decorator
 %else
+BuildRequires:    python%{pyver}-decorator
+%endif
+
+Requires:         python%{pyver}-alembic >= 0.8.7
+Requires:         python%{pyver}-boto
+Requires:         python%{pyver}-jinja2
+Requires:         python%{pyver}-jsonschema
+Requires:         python%{pyver}-netaddr
+Requires:         python%{pyver}-oslo-config >= 2:4.0.0
+Requires:         python%{pyver}-oslo-db >= 4.15.0
+Requires:         python%{pyver}-oslo-i18n >= 2.1.0
+Requires:         python%{pyver}-oslo-log >= 3.22.0
+Requires:         python%{pyver}-paramiko
+Requires:         python%{pyver}-prettytable
+Requires:         python%{pyver}-gnocchiclient >= 2.7.0
+Requires:         python%{pyver}-keystoneauth1 >= 3.1.0
+Requires:         python%{pyver}-mistralclient >= 2.0.0
+Requires:         python%{pyver}-glanceclient >= 1:2.5.0
+Requires:         python%{pyver}-keystoneclient
+Requires:         python%{pyver}-novaclient >= 1:6.0.0
+Requires:         python%{pyver}-neutronclient >= 5.1.0
+Requires:         python%{pyver}-cinderclient
+Requires:         python%{pyver}-heatclient
+Requires:         python%{pyver}-ceilometerclient
+Requires:         python%{pyver}-ironicclient
+Requires:         python%{pyver}-saharaclient >= 1.1.0
+Requires:         python%{pyver}-swiftclient >= 3.2.0
+Requires:         python%{pyver}-zaqarclient
+Requires:         python%{pyver}-requests >= 2.10.0
+Requires:         python%{pyver}-subunit
+Requires:         python%{pyver}-sqlalchemy
+Requires:         python%{pyver}-six >= 1.9.0
+Requires:         python%{pyver}-os-faults
+Requires:         python%{pyver}-osprofiler
+Requires:         python%{pyver}-pbr
+Requires:         python%{pyver}-manilaclient
+
+# Handle python2 exception
+%if %{pyver} == 2
 Requires:         python-decorator
 Requires:         PyYAML
-BuildRequires:    python-decorator
+%else
+Requires:         python%{pyver}-decorator
+Requires:         python%{pyver}-PyYAML
 %endif
-Requires:         python2-jinja2
-Requires:         python2-jsonschema
-Requires:         python2-netaddr
-Requires:         python2-oslo-config >= 2:4.0.0
-Requires:         python2-oslo-db >= 4.15.0
-Requires:         python2-oslo-i18n >= 2.1.0
-Requires:         python2-oslo-log >= 3.22.0
-Requires:         python2-paramiko
-Requires:         python2-prettytable
-Requires:         python2-gnocchiclient >= 2.7.0
-Requires:         python2-keystoneauth1 >= 3.1.0
-Requires:         python2-mistralclient >= 2.0.0
-Requires:         python2-glanceclient >= 1:2.5.0
-Requires:         python2-keystoneclient
-Requires:         python2-novaclient >= 1:6.0.0
-Requires:         python2-neutronclient >= 5.1.0
-Requires:         python2-cinderclient
-Requires:         python2-heatclient
-Requires:         python2-ceilometerclient
-Requires:         python2-ironicclient
-Requires:         python2-saharaclient >= 1.1.0
-Requires:         python2-swiftclient >= 3.2.0
-Requires:         python2-zaqarclient
-Requires:         python2-requests >= 2.10.0
-Requires:         python2-subunit
-Requires:         python2-sqlalchemy
-Requires:         python2-six >= 1.9.0
-Requires:         python2-os-faults
-Requires:         python2-osprofiler
-Requires:         python2-pbr
-Requires:         python2-manilaclient
 
-%description -n python2-%{project}
+%description -n python%{pyver}-%{project}
 %{common_desc}
 
 This package contains the rally python library.
-
-# Python3 package
-%if 0%{?with_python3}
-%package -n    python3-%{project}
-Summary:       Rally Python library
-
-%{?python_provide:%python_provide python3-%{project}}
-
-BuildRequires:    python3-devel
-BuildRequires:    python3-pbr
-BuildRequires:    python3-setuptools
-BuildRequires:    python3-oslo-config >= 2:4.0.0
-BuildRequires:    python3-oslo-log >= 3.22.0
-BuildRequires:    python3-oslo-db >= 4.15.0
-BuildRequires:    python3-jsonschema
-BuildRequires:    python3-novaclient >= 2.29.0
-BuildRequires:    python3-keystoneclient
-BuildRequires:    python3-neutronclient >= 5.1.0
-BuildRequires:    python3-glanceclient >= 2.3.0
-BuildRequires:    python3-saharaclient >= 0.18.0
-BuildRequires:    python3-paramiko
-BuildRequires:    python3-os-faults
-BuildRequires:    python3-subunit
-BuildRequires:    python3-osprofiler
-BuildRequires:    python2-decorator
-
-Requires:         python3-alembic >= 0.8.7
-Requires:         python3-boto
-Requires:         python3-decorator
-Requires:         python3-PyYAML
-Requires:         python3-jinja2
-Requires:         python3-jsonschema
-Requires:         python3-netaddr
-Requires:         python3-oslo-config >= 2:4.0.0
-Requires:         python3-oslo-db >= 4.15.0
-Requires:         python3-oslo-i18n >= 2.1.0
-Requires:         python3-oslo-log >= 3.22.0
-Requires:         python3-paramiko
-Requires:         python3-prettytable
-Requires:         python3-gnocchiclient >= 2.7.0
-Requires:         python3-keystoneauth1 >= 3.1.0
-Requires:         python3-mistralclient >= 2.0.0
-Requires:         python3-glanceclient >= 1:2.5.0
-Requires:         python3-keystoneclient
-Requires:         python3-novaclient >= 1:6.0.0
-Requires:         python3-neutronclient >= 5.1.0
-Requires:         python3-cinderclient
-Requires:         python3-heatclient
-Requires:         python3-ceilometerclient
-Requires:         python3-ironicclient
-Requires:         python3-saharaclient >= 1.1.0
-Requires:         python3-swiftclient >= 3.2.0
-Requires:         python3-zaqarclient
-Requires:         python3-requests >= 2.10.0
-Requires:         python3-subunit
-Requires:         python3-sqlalchemy
-Requires:         python3-six >= 1.9.0
-Requires:         python3-os-faults
-Requires:         python3-osprofiler
-Requires:         python3-pbr
-Requires:         python3-manilaclient
-
-%description -n python3-%{project}
-%{common_desc}
-
-This package contains tests for the Rally python library.
-%endif
 
 %if 0%{?with_doc}
 %package doc
@@ -177,12 +123,18 @@ Summary:    Documentation for OpenStack Rally
 
 Requires:       %{name} = %{version}-%{release}
 
-BuildRequires:  python2-sphinx
-BuildRequires:  python2-oslo-sphinx
-BuildRequires:  python2-prettytable
+BuildRequires:  python%{pyver}-sphinx
+BuildRequires:  python%{pyver}-oslo-sphinx
+BuildRequires:  python%{pyver}-prettytable
+BuildRequires:  python%{pyver}-subunit
+BuildRequires:  python%{pyver}-boto
+
+# Handle python2 exception
+%if %{pyver} == 2
 BuildRequires:  PyYAML
-BuildRequires:  python2-subunit
-BuildRequires:  python2-boto
+%else
+BuildRequires:  python%{pyver}-PyYAML
+%endif
 
 %description doc
 %{common_desc}
@@ -199,30 +151,25 @@ This package contains documentation files for Rally.
 chmod 644 `find samples/tasks/scenarios -type f -regex ".*\.\(yaml\|json\)" -print`
 
 %build
-%py2_build
-%if 0%{?with_python3}
-%py3_build
-%endif
+%{pyver_build}
 
 # for Documentation
 %if 0%{?with_doc}
-%{__python2} setup.py build_sphinx
-# remove the sphinx-build leftovers
+export PYTHONPATH=doc/ext
+%{pyver_bin} setup.py build_sphinx
+# remove the sphinx-build-%{pyver} leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %install
-%py2_install
-%if 0%{?with_python3}
-%py3_install
-%endif
+%{pyver_install}
 
 mkdir -p %{buildroot}/%{_sysconfdir}/bash_completion.d
 mv %{buildroot}/usr/etc/bash_completion.d/rally.bash_completion %{buildroot}/%{_sysconfdir}/bash_completion.d
 
 # Generate Rally config
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{project}/
-PYTHONPATH=. oslo-config-generator --config-file etc/rally/rally-config-generator.conf \
+PYTHONPATH=. oslo-config-generator-%{pyver} --config-file etc/rally/rally-config-generator.conf \
                       --output-file %{buildroot}%{_sysconfdir}/%{project}/rally.conf
 
 # fix config permission
@@ -241,17 +188,10 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %{_datarootdir}/%{name}/samples
 
 
-%files -n python2-%{project}
+%files -n python%{pyver}-%{project}
 %license LICENSE
-%{python2_sitelib}/%{project}
-%{python2_sitelib}/%{project}*.egg-info
-
-%if 0%{?with_python3}
-%files -n python3-%{project}
-%license LICENSE
-%{python3_sitelib}/%{project}
-%{python3_sitelib}/%{project}*.egg-info
-%endif
+%{pyver_sitelib}/%{project}
+%{pyver_sitelib}/%{project}*.egg-info
 
 %if 0%{?with_doc}
 %files doc
