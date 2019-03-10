@@ -128,6 +128,7 @@ BuildRequires:  python%{pyver}-oslo-sphinx
 BuildRequires:  python%{pyver}-prettytable
 BuildRequires:  python%{pyver}-subunit
 BuildRequires:  python%{pyver}-boto
+BuildRequires:  python%{pyver}-fixtures
 
 # Handle python2 exception
 %if %{pyver} == 2
