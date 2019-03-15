@@ -102,6 +102,7 @@ Requires:         python%{pyver}-os-faults
 Requires:         python%{pyver}-osprofiler
 Requires:         python%{pyver}-pbr
 Requires:         python%{pyver}-manilaclient
+Requires:         python%{pyver}-pyOpenSSL
 
 # Handle python2 exception
 %if %{pyver} == 2
