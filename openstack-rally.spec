@@ -52,15 +52,8 @@ BuildRequires:    python%{pyver}-oslo-config >= 2:4.0.0
 BuildRequires:    python%{pyver}-oslo-log >= 3.22.0
 BuildRequires:    python%{pyver}-oslo-db >= 4.15.0
 BuildRequires:    python%{pyver}-jsonschema
-BuildRequires:    python%{pyver}-novaclient >= 2.29.0
-BuildRequires:    python%{pyver}-keystoneclient
-BuildRequires:    python%{pyver}-neutronclient >= 5.1.0
-BuildRequires:    python%{pyver}-glanceclient >= 2.3.0
-BuildRequires:    python%{pyver}-saharaclient >= 0.18.0
 BuildRequires:    python%{pyver}-paramiko
-BuildRequires:    python%{pyver}-os-faults
 BuildRequires:    python%{pyver}-subunit
-BuildRequires:    python%{pyver}-osprofiler
 
 # Handle python2 exception
 %if %{pyver} == 2
@@ -70,38 +63,20 @@ BuildRequires:    python%{pyver}-decorator
 %endif
 
 Requires:         python%{pyver}-alembic >= 0.8.7
-Requires:         python%{pyver}-boto
 Requires:         python%{pyver}-jinja2
 Requires:         python%{pyver}-jsonschema
 Requires:         python%{pyver}-netaddr
 Requires:         python%{pyver}-oslo-config >= 2:4.0.0
 Requires:         python%{pyver}-oslo-db >= 4.15.0
-Requires:         python%{pyver}-oslo-i18n >= 2.1.0
 Requires:         python%{pyver}-oslo-log >= 3.22.0
 Requires:         python%{pyver}-paramiko
 Requires:         python%{pyver}-prettytable
-Requires:         python%{pyver}-gnocchiclient >= 2.7.0
-Requires:         python%{pyver}-keystoneauth1 >= 3.1.0
-Requires:         python%{pyver}-mistralclient >= 2.0.0
-Requires:         python%{pyver}-glanceclient >= 1:2.5.0
-Requires:         python%{pyver}-keystoneclient
-Requires:         python%{pyver}-novaclient >= 1:6.0.0
-Requires:         python%{pyver}-neutronclient >= 5.1.0
-Requires:         python%{pyver}-cinderclient
-Requires:         python%{pyver}-heatclient
-Requires:         python%{pyver}-ceilometerclient
-Requires:         python%{pyver}-ironicclient
-Requires:         python%{pyver}-saharaclient >= 1.1.0
-Requires:         python%{pyver}-swiftclient >= 3.2.0
-Requires:         python%{pyver}-zaqarclient
 Requires:         python%{pyver}-requests >= 2.10.0
 Requires:         python%{pyver}-subunit
 Requires:         python%{pyver}-sqlalchemy
 Requires:         python%{pyver}-six >= 1.9.0
-Requires:         python%{pyver}-os-faults
-Requires:         python%{pyver}-osprofiler
 Requires:         python%{pyver}-pbr
-Requires:         python%{pyver}-manilaclient
+Requires:         python%{pyver}-pyOpenSSL
 
 # Handle python2 exception
 %if %{pyver} == 2
@@ -127,7 +102,6 @@ BuildRequires:  python%{pyver}-sphinx
 BuildRequires:  python%{pyver}-oslo-sphinx
 BuildRequires:  python%{pyver}-prettytable
 BuildRequires:  python%{pyver}-subunit
-BuildRequires:  python%{pyver}-boto
 BuildRequires:  python%{pyver}-fixtures
 
 # Handle python2 exception
