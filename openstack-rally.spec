@@ -19,8 +19,8 @@ Rally is a benchmarking tool capable of performing specific, \
 complex and reproducible test cases on real deployment scenarios.
 
 Name:             openstack-%{project}
-Version:          XXX
-Release:          XXX
+Version:          1.4.1
+Release:          1%{?dist}
 Summary:          Benchmarking System for OpenStack
 
 License:          ASL 2.0
@@ -175,3 +175,6 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %endif
 
 %changelog
+* Fri Apr 05 2019 RDO <dev@lists.rdoproject.org> 1.4.1-1
+- Update to 1.4.1
+
