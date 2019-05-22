@@ -48,6 +48,7 @@ BuildRequires:    python%{pyver}-devel
 BuildRequires:    python%{pyver}-pbr
 BuildRequires:    python%{pyver}-setuptools
 # BuildRequires for oslo-config-generators
+BuildRequires:    python%{pyver}-fixtures
 BuildRequires:    python%{pyver}-oslo-config >= 2:4.0.0
 BuildRequires:    python%{pyver}-oslo-log >= 3.22.0
 BuildRequires:    python%{pyver}-oslo-db >= 4.15.0
@@ -102,7 +103,6 @@ BuildRequires:  python%{pyver}-sphinx
 BuildRequires:  python%{pyver}-oslo-sphinx
 BuildRequires:  python%{pyver}-prettytable
 BuildRequires:  python%{pyver}-subunit
-BuildRequires:  python%{pyver}-fixtures
 
 # Handle python2 exception
 %if %{pyver} == 2
