@@ -178,3 +178,4 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 * Fri Apr 05 2019 RDO <dev@lists.rdoproject.org> 1.4.1-1
 - Update to 1.4.1
 
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/rally/commit/?id=17d9b3e3c0a36ab1263c9645ca520ca50ad77560
