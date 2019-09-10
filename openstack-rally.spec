@@ -158,7 +158,6 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %license LICENSE
 %config(noreplace) %{_sysconfdir}/%{project}/%{project}.conf
 %{_bindir}/%{project}
-%{_bindir}/%{project}-manage
 %{_sysconfdir}/bash_completion.d/rally.bash_completion
 %{_datarootdir}/%{name}/samples
 
