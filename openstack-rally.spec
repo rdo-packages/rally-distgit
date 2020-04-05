@@ -174,3 +174,4 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %endif
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/rally/commit/?id=76e89392475e4c69b96149e10eda287a1fea5a90
