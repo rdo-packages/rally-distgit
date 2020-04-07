@@ -97,8 +97,7 @@ This package contains the rally python library.
 %package doc
 Summary:    Documentation for OpenStack Rally
 
-Requires:       %{name} = %{version}-%{release}
-
+BuildRequires:  python%{pyver}-%{project}
 BuildRequires:  python%{pyver}-sphinx
 BuildRequires:  python%{pyver}-oslo-sphinx
 BuildRequires:  python%{pyver}-prettytable
@@ -130,8 +129,7 @@ chmod 644 `find samples/tasks/scenarios -type f -regex ".*\.\(yaml\|json\)" -pri
 
 # for Documentation
 %if 0%{?with_doc}
-export PYTHONPATH=doc/ext
-%{pyver_bin} setup.py build_sphinx
+sphinx-build-%{pyver} -b html doc/source doc/build/html
 # remove the sphinx-build-%{pyver} leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
