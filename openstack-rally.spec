@@ -130,8 +130,8 @@ chmod 644 `find samples/tasks/scenarios -type f -regex ".*\.\(yaml\|json\)" -pri
 
 # for Documentation
 %if 0%{?with_doc}
-export PYTHONPATH=doc/ext
-%{pyver_bin} setup.py build_sphinx
+export PYTHONPATH=.
+sphinx-build-%{pyver} -b html doc/source doc/build/html
 # remove the sphinx-build-%{pyver} leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
