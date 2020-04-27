@@ -1,14 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 %global project rally
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
@@ -32,63 +21,49 @@ BuildArch:        noarch
 BuildRequires:    git
 BuildRequires:    openstack-macros
 
-Requires:       python%{pyver}-rally = %{version}-%{release}
+Requires:       python3-rally = %{version}-%{release}
 
 %description
 %{common_desc}
 
-%package -n    python%{pyver}-%{project}
+%package -n    python3-%{project}
 Summary:       Rally Python library
 
-%{?python_provide:%python_provide python%{pyver}-%{project}}
-%if %{pyver} == 3
+%{?python_provide:%python_provide python3-%{project}}
 Obsoletes: python2-%{project} < %{version}-%{release}
-%endif
-BuildRequires:    python%{pyver}-devel
-BuildRequires:    python%{pyver}-pbr
-BuildRequires:    python%{pyver}-setuptools
+BuildRequires:    python3-devel
+BuildRequires:    python3-pbr
+BuildRequires:    python3-setuptools
 # BuildRequires for oslo-config-generators
-BuildRequires:    python%{pyver}-fixtures
-BuildRequires:    python%{pyver}-oslo-config >= 2:4.0.0
-BuildRequires:    python%{pyver}-oslo-log >= 3.22.0
-BuildRequires:    python%{pyver}-oslo-db >= 4.15.0
-BuildRequires:    python%{pyver}-jsonschema
-BuildRequires:    python%{pyver}-paramiko
-BuildRequires:    python%{pyver}-subunit
+BuildRequires:    python3-fixtures
+BuildRequires:    python3-oslo-config >= 2:4.0.0
+BuildRequires:    python3-oslo-log >= 3.22.0
+BuildRequires:    python3-oslo-db >= 4.15.0
+BuildRequires:    python3-jsonschema
+BuildRequires:    python3-paramiko
+BuildRequires:    python3-subunit
 
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires:    python-decorator
-%else
-BuildRequires:    python%{pyver}-decorator
-%endif
+BuildRequires:    python3-decorator
 
-Requires:         python%{pyver}-alembic >= 0.8.7
-Requires:         python%{pyver}-jinja2
-Requires:         python%{pyver}-jsonschema
-Requires:         python%{pyver}-netaddr
-Requires:         python%{pyver}-oslo-config >= 2:4.0.0
-Requires:         python%{pyver}-oslo-db >= 4.15.0
-Requires:         python%{pyver}-oslo-log >= 3.22.0
-Requires:         python%{pyver}-paramiko
-Requires:         python%{pyver}-prettytable
-Requires:         python%{pyver}-requests >= 2.10.0
-Requires:         python%{pyver}-subunit
-Requires:         python%{pyver}-sqlalchemy
-Requires:         python%{pyver}-six >= 1.9.0
-Requires:         python%{pyver}-pbr
-Requires:         python%{pyver}-pyOpenSSL
+Requires:         python3-alembic >= 0.8.7
+Requires:         python3-jinja2
+Requires:         python3-jsonschema
+Requires:         python3-oslo-config >= 2:4.0.0
+Requires:         python3-oslo-db >= 4.15.0
+Requires:         python3-oslo-log >= 3.22.0
+Requires:         python3-paramiko
+Requires:         python3-prettytable
+Requires:         python3-requests >= 2.10.0
+Requires:         python3-subunit
+Requires:         python3-sqlalchemy
+Requires:         python3-six >= 1.9.0
+Requires:         python3-pbr
+Requires:         python3-pyOpenSSL
 
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:         python-decorator
-Requires:         PyYAML
-%else
-Requires:         python%{pyver}-decorator
-Requires:         python%{pyver}-PyYAML
-%endif
+Requires:         python3-decorator
+Requires:         python3-PyYAML
 
-%description -n python%{pyver}-%{project}
+%description -n python3-%{project}
 %{common_desc}
 
 This package contains the rally python library.
@@ -99,17 +74,12 @@ Summary:    Documentation for OpenStack Rally
 
 Requires:       %{name} = %{version}-%{release}
 
-BuildRequires:  python%{pyver}-sphinx
-BuildRequires:  python%{pyver}-oslo-sphinx
-BuildRequires:  python%{pyver}-prettytable
-BuildRequires:  python%{pyver}-subunit
+BuildRequires:  python3-sphinx
+BuildRequires:  python3-oslo-sphinx
+BuildRequires:  python3-prettytable
+BuildRequires:  python3-subunit
 
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires:  PyYAML
-%else
-BuildRequires:  python%{pyver}-PyYAML
-%endif
+BuildRequires:  python3-PyYAML
 
 %description doc
 %{common_desc}
@@ -126,25 +96,25 @@ This package contains documentation files for Rally.
 chmod 644 `find samples/tasks/scenarios -type f -regex ".*\.\(yaml\|json\)" -print`
 
 %build
-%{pyver_build}
+%{py3_build}
 
 # for Documentation
 %if 0%{?with_doc}
 export PYTHONPATH=.
-sphinx-build-%{pyver} -b html doc/source doc/build/html
-# remove the sphinx-build-%{pyver} leftovers
+sphinx-build -b html doc/source doc/build/html
+# remove the sphinx-build leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %install
-%{pyver_install}
+%{py3_install}
 
 mkdir -p %{buildroot}/%{_sysconfdir}/bash_completion.d
 mv %{buildroot}/usr/etc/bash_completion.d/rally.bash_completion %{buildroot}/%{_sysconfdir}/bash_completion.d
 
 # Generate Rally config
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{project}/
-PYTHONPATH=. oslo-config-generator-%{pyver} --config-file etc/rally/rally-config-generator.conf \
+PYTHONPATH=. oslo-config-generator --config-file etc/rally/rally-config-generator.conf \
                       --output-file %{buildroot}%{_sysconfdir}/%{project}/rally.conf
 
 # fix config permission
@@ -162,10 +132,10 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %{_datarootdir}/%{name}/samples
 
 
-%files -n python%{pyver}-%{project}
+%files -n python3-%{project}
 %license LICENSE
-%{pyver_sitelib}/%{project}
-%{pyver_sitelib}/%{project}*.egg-info
+%{python3_sitelib}/%{project}
+%{python3_sitelib}/%{project}*.egg-info
 
 %if 0%{?with_doc}
 %files doc
