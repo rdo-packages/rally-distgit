@@ -45,7 +45,7 @@ BuildRequires:    python3-subunit
 
 BuildRequires:    python3-decorator
 
-Requires:         python3-alembic >= 0.8.7
+Requires:         python3-alembic >= 1.3.1
 Requires:         python3-jinja2
 Requires:         python3-jsonschema
 Requires:         python3-oslo-config >= 2:4.0.0
@@ -53,10 +53,9 @@ Requires:         python3-oslo-db >= 4.15.0
 Requires:         python3-oslo-log >= 3.22.0
 Requires:         python3-paramiko
 Requires:         python3-prettytable
-Requires:         python3-requests >= 2.10.0
+Requires:         python3-requests >= 2.22.0
 Requires:         python3-subunit
 Requires:         python3-sqlalchemy
-Requires:         python3-six >= 1.9.0
 Requires:         python3-pbr
 Requires:         python3-pyOpenSSL
 
