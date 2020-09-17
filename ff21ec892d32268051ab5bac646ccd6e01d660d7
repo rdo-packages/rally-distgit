@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39f9dd51_f8aea672",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2020-09-17T10:26:33Z",
+      "side": 1,
+      "message": "six has been removed as requirement\n\nhttps://github.com/openstack/rally/commit/1821656002bd938615315e3f61d6cfe0e2acd566#diff-b4ef698db8ca845e5845c4618278f29a",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 38
+      },
+      "revId": "ff21ec892d32268051ab5bac646ccd6e01d660d7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
