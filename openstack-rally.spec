@@ -62,17 +62,17 @@ Requires:         python3-jinja2
 Requires:         python3-jsonschema
 Requires:         python3-oslo-config >= 2:4.0.0
 Requires:         python3-oslo-db >= 4.15.0
-Requires:         python3-oslo-log >= 3.22.0
+Requires:         python3-oslo-log >= 4.4.0
 Requires:         python3-paramiko
 Requires:         python3-prettytable
-Requires:         python3-requests >= 2.22.0
+Requires:         python3-requests >= 2.25.0
 Requires:         python3-subunit
 Requires:         python3-sqlalchemy
 Requires:         python3-pbr
 Requires:         python3-pyOpenSSL
 
 Requires:         python3-decorator
-Requires:         python3-PyYAML
+Requires:         python3-yaml
 
 %description -n python3-%{project}
 %{common_desc}
@@ -90,7 +90,7 @@ BuildRequires:  python3-oslo-sphinx
 BuildRequires:  python3-prettytable
 BuildRequires:  python3-subunit
 
-BuildRequires:  python3-PyYAML
+BuildRequires:  python3-yaml
 
 %description doc
 %{common_desc}
