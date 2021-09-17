@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x4c29ff0e437f3351fd82bdf47c5a3bc787dc7035
 %global project rally
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
@@ -10,8 +10,8 @@ Rally is a benchmarking tool capable of performing specific, \
 complex and reproducible test cases on real deployment scenarios.
 
 Name:             openstack-%{project}
-Version:          XXX
-Release:          XXX
+Version:          3.3.0
+Release:          1%{?dist}
 Summary:          Benchmarking System for OpenStack
 
 License:          ASL 2.0
@@ -159,3 +159,6 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %endif
 
 %changelog
+* Fri Sep 17 2021 RDO <dev@lists.rdoproject.org> 3.3.0-1
+- Update to 3.3.0
+
