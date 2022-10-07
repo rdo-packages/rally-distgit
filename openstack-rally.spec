@@ -67,7 +67,7 @@ Requires:         python3-paramiko
 Requires:         python3-prettytable
 Requires:         python3-requests >= 2.25.0
 Requires:         python3-subunit
-Requires:         python3-sqlalchemy
+Requires:         python3-sqlalchemy < 1.4.0
 Requires:         python3-pbr
 Requires:         python3-pyOpenSSL
 
