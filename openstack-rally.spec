@@ -55,8 +55,6 @@ BuildRequires:    python3-jsonschema
 BuildRequires:    python3-paramiko
 BuildRequires:    python3-subunit
 
-BuildRequires:    python3-decorator
-
 Requires:         python3-alembic >= 1.3.1
 Requires:         python3-jinja2
 Requires:         python3-jsonschema
@@ -71,8 +69,6 @@ Requires:         python3-sqlalchemy
 Requires:         python3-pbr
 Requires:         python3-pyOpenSSL
 Requires:         python3-markupsafe
-
-Requires:         python3-decorator
 Requires:         python3-yaml
 
 %description -n python3-%{project}
