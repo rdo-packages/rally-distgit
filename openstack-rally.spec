@@ -2,6 +2,14 @@
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %global project rally
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some runtime reqs from automatic generator
+%global excluded_reqs virtualenv
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order pytest pytest-html rally-openstack
+# Exclude sphinx from BRs if docs are disabled
+%if ! 0%{?with_doc}
+%global excluded_brs %{excluded_brs} sphinx openstackdocstheme
+%endif
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global with_kubernetes 1
 
@@ -14,7 +22,7 @@ Version:          XXX
 Release:          XXX
 Summary:          Benchmarking System for OpenStack
 
-License:          ASL 2.0
+License:          Apache-2.0
 URL:              https://rally.readthedocs.io
 Source0:          https://tarballs.openstack.org/rally/rally-%{upstream_version}.tar.gz
 # Required for tarball sources verification
@@ -41,35 +49,9 @@ Requires:       python3-rally = %{version}-%{release}
 %package -n    python3-%{project}
 Summary:       Rally Python library
 
-%{?python_provide:%python_provide python3-%{project}}
 Obsoletes: python2-%{project} < %{version}-%{release}
 BuildRequires:    python3-devel
-BuildRequires:    python3-pbr
-BuildRequires:    python3-setuptools
-# BuildRequires for oslo-config-generators
-BuildRequires:    python3-fixtures
-BuildRequires:    python3-oslo-config >= 2:4.0.0
-BuildRequires:    python3-oslo-log >= 3.22.0
-BuildRequires:    python3-oslo-db >= 4.15.0
-BuildRequires:    python3-jsonschema
-BuildRequires:    python3-paramiko
-BuildRequires:    python3-subunit
-
-Requires:         python3-alembic >= 1.3.1
-Requires:         python3-jinja2
-Requires:         python3-jsonschema
-Requires:         python3-oslo-config >= 2:4.0.0
-Requires:         python3-oslo-db >= 4.15.0
-Requires:         python3-oslo-log >= 4.4.0
-Requires:         python3-paramiko
-Requires:         python3-prettytable
-Requires:         python3-requests >= 2.25.0
-Requires:         python3-subunit
-Requires:         python3-sqlalchemy
-Requires:         python3-pbr
-Requires:         python3-pyOpenSSL
-Requires:         python3-markupsafe
-Requires:         python3-yaml
+BuildRequires:    pyproject-rpm-macros
 
 %description -n python3-%{project}
 %{common_desc}
@@ -79,15 +61,7 @@ This package contains the rally python library.
 %if 0%{?with_doc}
 %package doc
 Summary:    Documentation for OpenStack Rally
-
 Requires:       %{name} = %{version}-%{release}
-
-BuildRequires:  python3-sphinx
-BuildRequires:  python3-oslo-sphinx
-BuildRequires:  python3-prettytable
-BuildRequires:  python3-subunit
-
-BuildRequires:  python3-yaml
 
 %description doc
 %{common_desc}
@@ -102,24 +76,49 @@ This package contains documentation files for Rally.
 %endif
 %autosetup -S git -n %{project}-%{upstream_version}
 
-%py_req_cleanup
 
 # Fix permissions
 chmod 644 `find samples/tasks/scenarios -type f -regex ".*\.\(yaml\|json\)" -print`
 
+sed -i /.*-c.*upper-constraints.txt.*/d tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs};do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+# Automatic BR generation
+# Exclude some bad-known runtime reqs
+for pkg in %{excluded_reqs};do
+  sed -i /^${pkg}.*/d requirements.txt
+done
+
+%generate_buildrequires
+%if 0%{?with_doc}
+  %pyproject_buildrequires -t -e %{default_toxenv},docs
+%else
+  %pyproject_buildrequires -t -e %{default_toxenv}
+%endif
+
 %build
-%{py3_build}
+%pyproject_wheel
 
 # for Documentation
 %if 0%{?with_doc}
 export PYTHONPATH=.
-sphinx-build -b html doc/source doc/build/html
+%tox -e docs
 # remove the sphinx-build leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %install
-%{py3_install}
+%pyproject_install
 
 mkdir -p %{buildroot}/%{_sysconfdir}/bash_completion.d
 mv %{buildroot}/usr/etc/bash_completion.d/rally.bash_completion %{buildroot}/%{_sysconfdir}/bash_completion.d
@@ -147,7 +146,7 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 %files -n python3-%{project}
 %license LICENSE
 %{python3_sitelib}/%{project}
-%{python3_sitelib}/%{project}*.egg-info
+%{python3_sitelib}/%{project}*.dist-info
 
 %if 0%{?with_doc}
 %files doc
