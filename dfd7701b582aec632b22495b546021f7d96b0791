@@ -1,0 +1,8 @@
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Workflow+1: Joel Capitao <jcapitao@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Tue, 11 Jul 2023 08:49:14 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/rally-distgit/+/48984
+Project: openstack/rally-distgit
+Branch: refs/heads/rpm-master
