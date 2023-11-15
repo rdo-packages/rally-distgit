@@ -5,12 +5,17 @@
 # we are excluding some runtime reqs from automatic generator
 %global excluded_reqs virtualenv
 # we are excluding some BRs from automatic generator
-%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order pytest pytest-html rally-openstack
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order pytest pytest-html rally-openstack oslosphinx
 # Exclude sphinx from BRs if docs are disabled
 %if ! 0%{?with_doc}
 %global excluded_brs %{excluded_brs} sphinx openstackdocstheme
 %endif
-%global with_doc %{!?_without_doc:1}%{?_without_doc:0}
+# Note: rally is using a custom theme based on oslosphinx [1] which is retired
+# since a long time [2]. We have to stop building the doc until they switch to
+# standard doc generation.
+# [1] https://review.opendev.org/c/openstack/rally/+/478818
+# [2] https://github.com/openstack-archive/oslosphinx
+%global with_doc 0
 %global with_kubernetes 1
 
 %global common_desc \
