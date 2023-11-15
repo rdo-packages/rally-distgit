@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "933af0f1_293e498e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-11-15T10:29:26Z",
+      "side": 1,
+      "message": "Given that oslosphinx is still in u-c, i\u0027d carry it until it stops working or usage is removed upstream. Apparently it will hapen when moving to python 3.13 in the worst case.",
+      "revId": "b3a5f517e60461aef580bb8f7ba80a65a8869d71",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c5d5fce_114a2966",
