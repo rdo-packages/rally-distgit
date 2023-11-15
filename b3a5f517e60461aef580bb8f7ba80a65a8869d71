@@ -16,6 +16,24 @@
       "message": "this review is abandoned, so do they really switched?",
       "revId": "b3a5f517e60461aef580bb8f7ba80a65a8869d71",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11494121_1a1cd870",
+        "filename": "openstack-rally.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-11-15T09:45:28Z",
+      "side": 1,
+      "message": "Nope, that\u0027s why I had to stop building doc. They made the choice to not switch to standard doc generation (see Andrey Kurilin\u0027s comment in review)",
+      "parentUuid": "9c5d5fce_114a2966",
+      "revId": "b3a5f517e60461aef580bb8f7ba80a65a8869d71",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
