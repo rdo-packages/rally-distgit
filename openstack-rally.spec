@@ -162,3 +162,4 @@ cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 * Fri Apr 02 2021 RDO <dev@lists.rdoproject.org> 3.2.0-1
 - Update to 3.2.0
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/rally/commit/e5d9fc8e63cc0727831633cf5b89e5114270c8c3
