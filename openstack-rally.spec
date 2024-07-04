@@ -90,6 +90,7 @@ BuildRequires:  python3-sphinx
 BuildRequires:  python3-oslo-sphinx
 BuildRequires:  python3-prettytable
 BuildRequires:  python3-subunit
+BuildRequires:  python3-openstackdocstheme
 
 BuildRequires:  python3-yaml
 
