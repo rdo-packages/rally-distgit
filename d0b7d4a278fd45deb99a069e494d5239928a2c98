@@ -1,0 +1,8 @@
+Workflow+1: Yatin Karel <ykarel@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Code-Review+2: Yatin Karel <ykarel@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Fri, 01 Aug 2025 03:17:09 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/rally-distgit/+/58069
+Project: openstack/rally-distgit
+Branch: refs/heads/antelope-rdo
