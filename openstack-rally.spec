@@ -137,6 +137,7 @@ chmod 644 %{buildroot}%{_sysconfdir}/%{project}/rally.conf
 mkdir -p %{buildroot}%{_datarootdir}/%{name}
 cp -pr samples %{buildroot}%{_datarootdir}/%{name}
 
+
 %files
 %license LICENSE
 %config(noreplace) %{_sysconfdir}/%{project}/%{project}.conf
